@@ -92,7 +92,7 @@
 .content__title a {
 	font-weight: bold;
 	transition: all .2s;
-	color: var(--primary-color);
+	color: var(--primary-color-contrast);
 }
 
 .content__title a:hover {
