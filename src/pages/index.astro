@@ -15,99 +15,40 @@ let title = "franco aguzzi - web's future";
 	<title>{title}</title>
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-	<style>
-		header {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			max-width: min(100%, 68ch);
-		}
-
-		h1 {
-			color: #72abe4;
-			text-align: center;
-		}
-
-		.leftImage,
-		.rightImage {
-			height: 100vh;
-			width: 25%;
-			background: url('/encontro.jpeg');
-			background-size: cover;
-			background-position: left 30% top;
-		}
-
-		.rightImage {
-			background: url('/background.png');
-			background-position: right 20% bottom 40%;
-		}
-
-		ul {
-			list-style: none;
-			margin: 60px 0 0 0;
-			padding: 0;
-			display: flex;
-		}
-
-		ul li:not(:last-child) {
-			margin-right: 40px;
-		}
-
-		li img {
-			width: 70px;
-		}
-
-		ul li {
-			transition: all .2s;
-		}
-
-		li:hover {
-			transform: scale(1.2);
-			transition: all .2s;
-
-		}
-	</style>
-	<style is:global>
-		pre {
-			padding: 1rem;
-		}
-	</style>
 </head>
 
 <body>
 	<main>
 		<div class="leftImage"></div>
-		<header>
-			<div>
-				<Image width="200" height src="/acenando.png"></Image>
-				<h1>Hi, I'm <strong>Franco Aguzzi</strong></h1>
+		<header class="content">
+			<Image width="200px" src="/acenando.png" class="content__memoji"></Image>
+			<h1 class="content__title">Hi, I'm <a href="mailto:faguzzi3@gmail.com">Franco Aguzzi</a></h1>
 
-				<p class="subtitle">I help building web's future. <br> Accessible, creative and performant purposes.</p>
+			<p class="content__subtitle">I help building web's future. <br> Accessible, creative and performant
+				purposes.</p>
 
 
-				<p class="future">I'll share more here in the near future, <br> in the meanwhile, you can find me
-					at:
-				</p>
+			<p class="content__future">I'll share more here in the near future, <br> in the meanwhile, you can find me
+				at:
+			</p>
 
-				<ul>
-					<li>
-						<a href="https://www.linkedin.com/in/franco-aguzzi-546506184/">
-							<img src="/linkedin.png" alt="LinkedIn logo">
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/FrancoAguzzi">
-							<img src="/github.png" alt="Github logo">
-						</a>
-					</li>
-					<li>
-						<a href="mailto:faguzzi3@gmail.com">
-							<img src="/email.png" alt="Email symbol">
-						</a>
-					</li>
-				</ul>
-			</div>
+			<ul class="content__socialMedias">
+				<li>
+					<a href="https://www.linkedin.com/in/franco-aguzzi-546506184/">
+						<img src="/linkedin.png" alt="LinkedIn logo">
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/FrancoAguzzi">
+						<img src="/github.png" alt="Github logo">
+					</a>
+				</li>
+				<li>
+					<a href="mailto:faguzzi3@gmail.com">
+						<img src="/email.png" alt="Email symbol">
+					</a>
+				</li>
+			</ul>
 		</header>
 
 		<div class="rightImage"></div>
