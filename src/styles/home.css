@@ -85,14 +85,14 @@
 	font-size: 2.25rem;
 	font-weight: 500;
 	margin-top: 40px;
-	color: #72abe4;
+	color: var(--secondary-color);
 	text-align: center;
 }
 
 .content__title a {
 	font-weight: bold;
 	transition: all .2s;
-	color: var(--primary-color-contrast);
+	color: var(--secondary-color);
 }
 
 .content__title a:hover {
