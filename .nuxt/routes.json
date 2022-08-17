@@ -1,0 +1,20 @@
+[
+  {
+    "name": "contact",
+    "path": "/contact",
+    "component": "/Users/franco/aguzzi.eth/pages/contact.vue",
+    "chunkName": "pages/contact"
+  },
+  {
+    "name": "projects",
+    "path": "/projects",
+    "component": "/Users/franco/aguzzi.eth/pages/projects.vue",
+    "chunkName": "pages/projects"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/franco/aguzzi.eth/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
