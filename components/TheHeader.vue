@@ -17,7 +17,7 @@
             </li>
         </ul>
         <div v-if="!isStar" class="header__content">
-            <h1 class="header__content-pricing"><b>DAY RATE</b> $160</h1>
+            <h1 class="header__content-pricing"><b>DAY RATE</b> £250</h1>
             <nuxt-link to="/contact" class="header__content-contact">CONTACT</nuxt-link>
         </div>
         <img v-if="!isLunar && !isStar && !isProjects" class="header__image" src="../assets/images/sun.png"
