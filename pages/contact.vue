@@ -20,8 +20,8 @@ export default {
     &__title {
         font-family: $secondary-font;
         background: linear-gradient(180deg,
-                #5977E1 80%,
-                #D4E5E8 100%);
+                #FFE603 9.38%,
+                #EB6035 30.21%);
         background-clip: text;
         text-fill-color: transparent;
         -webkit-background-clip: text;

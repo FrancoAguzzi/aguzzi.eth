@@ -47,7 +47,8 @@ export default {
             margin-left: -15vw;
 
             @media screen and (min-width: 768px) {
-                width: 120vw;
+                width: 80vw;
+                margin: 0 auto;
             }
         }
 
