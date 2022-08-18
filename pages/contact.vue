@@ -5,7 +5,7 @@
             <h1 class="contact__title">Hands on! Let's reach the
                 next level together! </h1>
             <form class="contact__form"
-                action="https://script.google.com/macros/s/AKfycbw-VikA1ClB56hsm_M_o8anhpuuTI_B1rgMO5bfUkUKOilsbkAXul4wJgWEiquil0WsjA/exec"
+                action="https://script.google.com/macros/s/AKfycbwsV0Whvruneq3e6LFI9hEHxN4q06WwsbqPHA9FLKUdebWFUDvuubYfz7xB7_AMc_WL/exec"
                 method="POST">
                 <input type="text" name="name" id="name" required placeholder="Name*">
                 <input type="tel" name="phone" id="phone" required placeholder="Phone*">
