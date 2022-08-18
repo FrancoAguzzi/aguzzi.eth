@@ -48,6 +48,7 @@ export default {
         background-color: rgba(255, 255, 255, 0);
         border: none;
         width: 60px;
+        cursor: pointer;
 
         img {
             width: 100%;
@@ -96,6 +97,7 @@ export default {
             font-size: 14px;
             color: $font-color;
             text-align: center;
+            cursor: pointer;
         }
     }
 

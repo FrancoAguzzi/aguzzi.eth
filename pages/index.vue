@@ -34,7 +34,7 @@ export default {
       scrollStatus.wheeling = true
 
       if (!scrollStatus.functionCall) {
-        const shouldGoToNextPage = e.deltaY > 0
+        const shouldGoToNextPage = window.scrollY > 0
         if (shouldGoToNextPage) {
           if (this.currentPage === 2) {
             return
@@ -55,11 +55,11 @@ export default {
       scrollTimer = window.setTimeout(() => {
         scrollStatus.wheeling = false;
         scrollStatus.functionCall = false;
-      }, 200);
+      }, 500);
     }
 
-    window.addEventListener('wheel', (e) => whellEverytime(e))
-    window.addEventListener('touchmove', (e) => whellEverytime(e))
+    window.addEventListener('scroll', (e) => whellEverytime(e))
+    // window.addEventListener('touchmove', (e) => whellEverytime(e))
 
     const params = new URLSearchParams(document.location.search.substring(1));
 
@@ -67,10 +67,10 @@ export default {
       this.currentPage = parseInt(params.get('currentPage'));
       this.changedPage = true;
       this.hideSolar = true;
-      window.addEventListener('wheel', () => {
+      window.addEventListener('scroll', () => {
         this.hideSolar = false
         this.currentPage = 1
-        window.addEventListener('wheel', (e) => whellEverytime(e))
+        window.addEventListener('scroll', (e) => whellEverytime(e))
       })
       window.addEventListener('touchmove', () => {
         this.hideSolar = false
@@ -156,9 +156,14 @@ export default {
     padding: 20px 40px;
     border-radius: 6px;
     border: 2px solid $font-color;
-    font-size: 32px;
+    font-size: 24px;
     font-family: $secondary-font;
     display: none;
+    min-width: 200px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 32px;
+    }
 
     &.error {
       background-color: rgba(222, 130, 130, 0.641);

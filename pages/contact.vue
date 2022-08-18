@@ -102,7 +102,7 @@ export default {
             font-size: 16px;
             margin: 0 20px 30px;
             max-width: 500px;
-            border-radius: none;
+            border-radius: 0;
         }
 
         textarea {

@@ -39,16 +39,20 @@ export default {
         &-texts {
             text-align: center;
             width: 80%;
-            margin: 50vh auto 0;
+            margin: 45vh auto 0;
 
             &__title {
                 background-color: $contrast-color;
-                font-size: 28px;
+                font-size: 24px;
                 background: linear-gradient(180deg, #5977E1 80%, #D4E5E8 100%);
                 background-clip: text;
                 text-fill-color: rgba(255, 255, 255, 0);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+                @media screen and (min-width: 768px) {
+                    font-size: 28px;
+                }
             }
 
             &__cta {
@@ -84,7 +88,7 @@ export default {
         }
 
         &-bg {
-            width: 160vw;
+            width: 150vw;
             margin-left: -15vw;
             position: absolute;
             top: 0;
