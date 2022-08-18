@@ -26,9 +26,6 @@ export default {
     max-height: 100vh;
 
     &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         height: 80vh;
         font-family: $secondary-font;
         background: linear-gradient(90deg, #EAA52E 0%, #EB6035 100%);
