@@ -59,6 +59,7 @@ export default {
     }
 
     window.addEventListener('wheel', (e) => whellEverytime(e))
+    window.addEventListener('touchmove', (e) => whellEverytime(e))
 
     const params = new URLSearchParams(document.location.search.substring(1));
 
@@ -70,6 +71,11 @@ export default {
         this.hideSolar = false
         this.currentPage = 1
         window.addEventListener('wheel', (e) => whellEverytime(e))
+      })
+      window.addEventListener('touchmove', () => {
+        this.hideSolar = false
+        this.currentPage = 1
+        window.addEventListener('touchmove', (e) => whellEverytime(e))
       })
     }
 
