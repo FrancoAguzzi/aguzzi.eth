@@ -22,8 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 .solar {
-    height: 100vh;
-    max-height: 100vh;
+    height: 101vh;
+    max-height: 101vh;
 
     &__content {
         height: 80vh;

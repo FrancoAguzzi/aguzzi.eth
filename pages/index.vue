@@ -18,22 +18,21 @@ export default {
       changedPage: false,
       hideSolar: false,
       showThanksMessage: false,
-      showErrorMessage: false
+      showErrorMessage: false,
+      scrollStatus: {
+        wheeling: false,
+        functionCall: false
+      },
+      scrollTimer: null
     }
   },
   mounted() {
     const whellEverytime = (e) => {
       this.changedPage = true;
-      const scrollStatus = {
-        wheeling: false,
-        functionCall: false
-      }
 
-      let scrollTimer;
+      this.scrollStatus.wheeling = true
 
-      scrollStatus.wheeling = true
-
-      if (!scrollStatus.functionCall) {
+      if (!this.scrollStatus.functionCall) {
         const shouldGoToNextPage = window.scrollY > 0
         if (shouldGoToNextPage) {
           if (this.currentPage === 2) {
@@ -48,18 +47,17 @@ export default {
             this.currentPage--
           }
         }
-        scrollStatus.functionCall = true;
+        this.scrollStatus.functionCall = true;
       }
 
-      window.clearInterval(scrollTimer);
-      scrollTimer = window.setTimeout(() => {
-        scrollStatus.wheeling = false;
-        scrollStatus.functionCall = false;
-      }, 500);
+      window.clearInterval(this.scrollTimer);
+      this.scrollTimer = window.setTimeout(() => {
+        this.scrollStatus.wheeling = false;
+        this.scrollStatus.functionCall = false;
+      }, 2000);
     }
 
     window.addEventListener('scroll', (e) => whellEverytime(e))
-    // window.addEventListener('touchmove', (e) => whellEverytime(e))
 
     const params = new URLSearchParams(document.location.search.substring(1));
 
@@ -71,11 +69,6 @@ export default {
         this.hideSolar = false
         this.currentPage = 1
         window.addEventListener('scroll', (e) => whellEverytime(e))
-      })
-      window.addEventListener('touchmove', () => {
-        this.hideSolar = false
-        this.currentPage = 1
-        window.addEventListener('touchmove', (e) => whellEverytime(e))
       })
     }
 
