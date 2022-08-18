@@ -106,7 +106,7 @@ export default {
             top: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #5977E1 99.99%);
+            background: -webkit-linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #5977E1 99.99%);
             z-index: 2;
         }
 

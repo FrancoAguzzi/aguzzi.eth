@@ -28,7 +28,7 @@ export default {
     &__content {
         height: 80vh;
         font-family: $secondary-font;
-        background: linear-gradient(90deg, #EAA52E 0%, #EB6035 100%);
+        background: -webkit-linear-gradient(90deg, #EAA52E 0%, #EB6035 100%);
         background-clip: text;
         text-fill-color: rgba(255, 255, 255, 0);
         -webkit-background-clip: text;

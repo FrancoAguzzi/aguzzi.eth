@@ -44,11 +44,12 @@ export default {
             &__title {
                 background-color: $contrast-color;
                 font-size: 24px;
-                background: linear-gradient(180deg, #5977E1 80%, #D4E5E8 100%);
+                background: -webkit-linear-gradient(180deg, #5977E1 80%, #D4E5E8 100%);
                 background-clip: text;
                 text-fill-color: rgba(255, 255, 255, 0);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: rgba(255, 255, 255, 0);
+                margin: 20px 0 30px;
 
                 @media screen and (min-width: 768px) {
                     font-size: 28px;

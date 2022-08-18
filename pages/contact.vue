@@ -66,7 +66,7 @@ export default {
 .contact {
     &__title {
         font-family: $secondary-font;
-        background: linear-gradient(180deg,
+        background: -webkit-linear-gradient(180deg,
                 #FFE603 9.38%,
                 #EB6035 30.21%);
         background-clip: text;
