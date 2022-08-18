@@ -36,6 +36,8 @@ export default {
         text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        max-width: 1024px;
+        margin: 0 auto;
 
         &-texts {
             text-align: center;
@@ -44,11 +46,26 @@ export default {
 
             p {
                 font-size: 32px;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 36px;
+                }
             }
 
             h1 {
                 font-size: 26px;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 30px;
+                    max-width: 500px;
+                    margin-left: auto;
+                    margin-bottom: -10vh;
+                }
             }
+        }
+
+        &-bg {
+            margin: 30px 0 0;
         }
     }
 }

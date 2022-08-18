@@ -17,7 +17,7 @@
             </li>
         </ul>
         <div v-if="!isStar" class="header__content">
-            <h1 class="header__content-pricing"><b>DAY RATE</b> £250</h1>
+            <h1 class="header__content-pricing"><b>DAY RATE</b> £200</h1>
             <nuxt-link to="/contact" class="header__content-contact">CONTACT</nuxt-link>
         </div>
         <img v-if="!isLunar && !isStar && !isProjects" class="header__image" src="../assets/images/sun.png"
@@ -124,15 +124,15 @@ export default {
         max-width: 1024px;
 
         &__content {
-            font-size: 14px;
+            font-size: 9px;
 
             &-contact {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
 
         &__image {
-            width: 180px;
+            width: 160px;
         }
     }
 }

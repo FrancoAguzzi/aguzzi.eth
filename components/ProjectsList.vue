@@ -92,7 +92,8 @@ export default {
         z-index: 2;
         width: 80vw;
         height: 170px;
-        margin-top: 30px;
+        margin-top: 60px;
+        max-width: 1024px;
 
         a {
             text-decoration: none;
@@ -120,14 +121,15 @@ export default {
         }
 
         &__overview {
-            padding: 30px 80px 10px 10px;
-            margin-bottom: 10px;
+            padding: 30px 80px 10px 30px;
+            margin: 0 0 10px -20px;
             background-color: $contrast-color;
             z-index: 3;
             position: relative;
             font-size: 10px;
             font-family: $primary-font;
             clip-path: polygon(0 20%, 69% 20%, 100% 100%, 0% 100%);
+            transition: all .2s;
 
             h1 {
                 margin: 0 0 6px;
@@ -136,6 +138,13 @@ export default {
             h2 {
                 font-weight: 400;
                 margin: 0;
+            }
+        }
+
+        &:hover {
+            .project__overview {
+                transform: translateX(20px);
+                transition: all .2s;
             }
         }
     }

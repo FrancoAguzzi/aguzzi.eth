@@ -1,7 +1,7 @@
 <template>
-  <div :class="`home page-${changedPage ? currentPage : ''} ${goToProjects ? 'from-projects' : ''}`">
-    <SolarPage />
-    <LunarPage />
+  <div :class="`home page-${changedPage ? currentPage : ''}`">
+    <SolarPage v-if="!hideSolar" />
+    <LunarPage :class="{ hideSolar }" />
   </div>
 </template>
 
@@ -12,11 +12,11 @@ export default {
     return {
       currentPage: 1,
       changedPage: false,
-      goToProjects: false
+      hideSolar: false
     }
   },
   mounted() {
-    window.addEventListener('wheel', (e) => {
+    const whellEverytime = (e) => {
       this.changedPage = true;
       const scrollStatus = {
         wheeling: false,
@@ -50,14 +50,21 @@ export default {
         scrollStatus.wheeling = false;
         scrollStatus.functionCall = false;
       }, 200);
-    })
+    }
+
+    window.addEventListener('wheel', (e) => whellEverytime(e))
 
     const params = new URLSearchParams(document.location.search.substring(1));
 
     if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
       this.currentPage = parseInt(params.get('currentPage'));
       this.changedPage = true;
-      this.goToProjects = true
+      this.hideSolar = true;
+      window.addEventListener('wheel', () => {
+        this.hideSolar = false
+        this.currentPage = 1
+        window.addEventListener('wheel', (e) => whellEverytime(e))
+      })
     }
   }
 }
@@ -149,6 +156,9 @@ export default {
     }
   }
 
-  &.from-projects {}
+  .lunar.hideSolar {
+    transform: translateX(-20vw);
+    animation: none;
+  }
 }
 </style>

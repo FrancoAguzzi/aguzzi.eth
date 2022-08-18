@@ -4,7 +4,19 @@
         <main>
             <h1 class="contact__title">Hands on! Let's reach the
                 next level together! </h1>
-            <img class="contact__franco" src="../assets/images/acenando.png" alt="Franco Aguzzi's emoji waving goodbye">
+            <form class="contact__form"
+                action="https://script.google.com/macros/s/AKfycbw-VikA1ClB56hsm_M_o8anhpuuTI_B1rgMO5bfUkUKOilsbkAXul4wJgWEiquil0WsjA/exec"
+                method="POST">
+                <input type="text" name="name" id="name" required placeholder="Name*">
+                <input type="tel" name="phone" id="phone" required placeholder="Phone*">
+                <input type="email" name="email" id="email" required placeholder="E-mail*">
+                <div class="contact__form-checkbox">
+                    <input type="checkbox" name="pricingUnderstand" id="pricingUnderstand" required>
+                    <label for="pricingUnderstand">I understand Franco's daily rate is £200</label>
+                </div>
+                <textarea name="message" id="message" placeholder="How can I help you?"></textarea>
+                <input class="contact__form-submit" type="submit" value="SUBMIT">
+            </form>
         </main>
     </div>
 </template>
@@ -26,20 +38,60 @@ export default {
         text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin: 90px 40px 0;
+        margin: 0 40px 80px;
         text-align: center;
 
         @media screen and (min-width: 768px) {
             font-size: 36px;
+            margin-top: 60px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-top: -20px;
         }
     }
 
-    &__franco {
+    &__form {
         display: flex;
-        justify-content: center;
-        margin: 40px auto 0;
-        width: 50%;
-        max-width: 300px;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 500px;
+
+        input,
+        textarea {
+            border: none;
+            border-bottom: 2px solid $font-color;
+            padding: 10px;
+            background: transparent;
+            font-family: $primary-font;
+            font-size: 16px;
+            margin: 0 20px 30px;
+            max-width: 500px;
+        }
+
+        textarea {
+            border: 2px solid $font-color;
+        }
+
+        &-checkbox {
+            display: flex;
+            align-items: center;
+            font-family: $primary-font;
+            font-size: 16px;
+            margin-bottom: 30px;
+
+            input {
+                margin: 0 15px 0 20px;
+            }
+        }
+
+        input.contact__form-submit {
+            font-family: $secondary-font;
+            background: conic-gradient(from 188.3deg at 50% 50%, #FFE603 0deg, rgba(255, 230, 3, 0) 360deg);
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
     }
 }
 </style>
