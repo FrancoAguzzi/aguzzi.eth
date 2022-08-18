@@ -2,6 +2,10 @@
   <div :class="`home page-${changedPage ? currentPage : ''}`">
     <SolarPage v-if="!hideSolar" />
     <LunarPage :class="{ hideSolar }" />
+    <div :class="['home__message', { error: showErrorMessage, thanks: showThanksMessage }]">
+      {{ showErrorMessage ? 'The form could not be successfully submitted, please try again.' : '' }}
+      {{ showThanksMessage ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼' : '' }}
+    </div>
   </div>
 </template>
 
@@ -12,7 +16,9 @@ export default {
     return {
       currentPage: 1,
       changedPage: false,
-      hideSolar: false
+      hideSolar: false,
+      showThanksMessage: false,
+      showErrorMessage: false
     }
   },
   mounted() {
@@ -66,6 +72,24 @@ export default {
         window.addEventListener('wheel', (e) => whellEverytime(e))
       })
     }
+
+    if (params.get('thankyou') && params.get('thankyou') === 'true') {
+      this.showThanksMessage = true
+    } else if (params.get('thankyou') && params.get('thankyou') === 'false') {
+      this.showErrorMessage = true
+    }
+  },
+  watch: {
+    showThanksMessage() {
+      setTimeout(() => {
+        this.showThanksMessage = false
+      }, 8000)
+    },
+    showErrorMessage() {
+      setTimeout(() => {
+        this.showErrorMessage = false
+      }, 8000)
+    }
   }
 }
 </script>
@@ -116,6 +140,32 @@ export default {
   overflow: hidden;
   display: flex;
   transition: transform .4s;
+
+  &__message {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $contrast-color;
+    padding: 20px 40px;
+    border-radius: 6px;
+    border: 2px solid $font-color;
+    font-size: 32px;
+    font-family: $secondary-font;
+    display: none;
+
+    &.error {
+      background-color: rgba(222, 130, 130, 0.641);
+      border-color: rgb(250, 141, 141);
+      display: block;
+    }
+
+    &.thanks {
+      background-color: rgba(186, 225, 138, 0.8);
+      border-color: rgb(143, 239, 105);
+      display: block;
+    }
+  }
 
   .solar,
   .lunar {

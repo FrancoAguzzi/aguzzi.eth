@@ -4,18 +4,17 @@
         <main>
             <h1 class="contact__title">Hands on! Let's reach the
                 next level together! </h1>
-            <form class="contact__form"
-                action="https://script.google.com/macros/s/AKfycbwsV0Whvruneq3e6LFI9hEHxN4q06WwsbqPHA9FLKUdebWFUDvuubYfz7xB7_AMc_WL/exec"
-                method="POST">
-                <input type="text" name="name" id="name" required placeholder="Name*">
-                <input type="tel" name="phone" id="phone" required placeholder="Phone*">
-                <input type="email" name="email" id="email" required placeholder="E-mail*">
+            <form id="contact-form" class="contact__form" @submit.prevent="goToThanksPage">
+                <input v-model="name" type="text" name="name" id="name" required placeholder="Name*">
+                <input v-model="phone" type="tel" name="phone" id="phone" required placeholder="Phone*">
+                <input v-model="email" type="email" name="email" id="email" required placeholder="E-mail*">
                 <div class="contact__form-checkbox">
-                    <input type="checkbox" name="pricingUnderstand" id="pricingUnderstand" required>
+                    <input v-model="pricingUnderstand" type="checkbox" name="pricingUnderstand" id="pricingUnderstand"
+                        required>
                     <label for="pricingUnderstand">I understand Franco's daily rate is £200</label>
                 </div>
-                <textarea name="message" id="message" placeholder="How can I help you?"></textarea>
-                <input class="contact__form-submit" type="submit" value="SUBMIT">
+                <textarea v-model="message" name="message" id="message" placeholder="How can I help you?"></textarea>
+                <input class="contact__form-submit" type="submit" :value="inputValue">
             </form>
         </main>
     </div>
@@ -24,6 +23,42 @@
 <script>
 export default {
     name: 'ContactPage',
+    data() {
+        return {
+            name: '',
+            phone: '',
+            email: '',
+            message: '',
+            pricingUnderstand: false,
+            inputValue: 'SUBMIT'
+        }
+    },
+    methods: {
+        goToThanksPage() {
+            this.inputValue = 'LOADING';
+
+            setInterval(() => {
+                if (this.inputValue !== 'LOADING...') {
+                    this.inputValue += '.'
+                } else {
+                    this.inputValue = 'LOADING'
+                }
+            }, 1000)
+
+            const form = new FormData(document.getElementById('contact-form'));
+
+            fetch('https://script.google.com/macros/s/AKfycbwsV0Whvruneq3e6LFI9hEHxN4q06WwsbqPHA9FLKUdebWFUDvuubYfz7xB7_AMc_WL/exec', {
+                method: 'POST',
+                body: form
+            }).then(() => {
+                window.location.href = '/?thankyou=true'
+            }).catch((e) => {
+                window.location.href = '/?thankyou=false'
+            }).finally(() => {
+                clearInterval
+            })
+        }
+    }
 }
 </script>
 
