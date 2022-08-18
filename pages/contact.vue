@@ -70,9 +70,9 @@ export default {
                 #FFE603 9.38%,
                 #EB6035 30.21%);
         background-clip: text;
-        text-fill-color: transparent;
+        text-fill-color: rgba(255, 255, 255, 0);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0);
         margin: 0 40px 80px;
         text-align: center;
 
@@ -97,7 +97,7 @@ export default {
             border: none;
             border-bottom: 2px solid $font-color;
             padding: 10px;
-            background: transparent;
+            background: rgba(255, 255, 255, 0);
             font-family: $primary-font;
             font-size: 16px;
             margin: 0 20px 30px;

@@ -46,9 +46,9 @@ export default {
                 font-size: 28px;
                 background: linear-gradient(180deg, #5977E1 80%, #D4E5E8 100%);
                 background-clip: text;
-                text-fill-color: transparent;
+                text-fill-color: rgba(255, 255, 255, 0);
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                -webkit-text-fill-color: rgba(255, 255, 255, 0);
             }
 
             &__cta {
