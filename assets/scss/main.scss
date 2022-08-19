@@ -1,0 +1,17 @@
+// VARIABLES
+$font-color: #000;
+$contrast-color: #fff;
+
+$primary-font: 'Inter', sans-serif;
+$secondary-font: 'Aladin', cursive;
+
+// NORMALIZER
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    color: $font-color;
+}
