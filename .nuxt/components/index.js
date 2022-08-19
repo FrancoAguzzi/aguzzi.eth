@@ -1,7 +1,7 @@
-export { default as LunarPage } from '../../components/LunarPage.vue'
-export { default as ProjectsList } from '../../components/ProjectsList.vue'
-export { default as SolarPage } from '../../components/SolarPage.vue'
-export { default as TheHeader } from '../../components/TheHeader.vue'
+export const LunarPage = () => import('../../components/LunarPage.vue' /* webpackChunkName: "components/lunar-page" */).then(c => wrapFunctional(c.default || c))
+export const ProjectsList = () => import('../../components/ProjectsList.vue' /* webpackChunkName: "components/projects-list" */).then(c => wrapFunctional(c.default || c))
+export const SolarPage = () => import('../../components/SolarPage.vue' /* webpackChunkName: "components/solar-page" */).then(c => wrapFunctional(c.default || c))
+export const TheHeader = () => import('../../components/TheHeader.vue' /* webpackChunkName: "components/the-header" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

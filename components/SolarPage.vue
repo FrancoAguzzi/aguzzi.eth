@@ -40,10 +40,10 @@ export default {
             text-align: center;
             width: 80%;
             margin: 0 auto;
-            display: inline;
 
             p {
                 font-size: 32px;
+                display: inline;
 
                 @media screen and (min-width: 768px) {
                     font-size: 36px;
@@ -52,6 +52,7 @@ export default {
 
             h1 {
                 font-size: 26px;
+                display: inline;
 
                 @media screen and (min-width: 768px) {
                     font-size: 30px;
