@@ -40,6 +40,7 @@ export default {
             text-align: center;
             width: 80%;
             margin: 0 auto;
+            display: inline;
 
             p {
                 font-size: 32px;

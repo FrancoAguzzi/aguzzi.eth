@@ -50,6 +50,7 @@ export default {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: rgba(255, 255, 255, 0);
                 margin: 20px 0 30px;
+                display: inline;
 
                 @media screen and (min-width: 768px) {
                     font-size: 28px;
