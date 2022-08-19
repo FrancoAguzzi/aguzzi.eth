@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import _throttle from 'lodash/throttle';
+
 export default {
   name: 'IndexPage',
   data() {
@@ -27,7 +29,29 @@ export default {
     }
   },
   mounted() {
-    const whellEverytime = (e) => {
+    window.addEventListener('scroll', (e) => this.whellEverytime(e))
+
+    const params = new URLSearchParams(document.location.search.substring(1));
+
+    if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
+      this.currentPage = parseInt(params.get('currentPage'));
+      this.changedPage = true;
+      this.hideSolar = true;
+      window.addEventListener('scroll', () => {
+        this.hideSolar = false
+        this.currentPage = 1
+        window.addEventListener('scroll', (e) => this.whellEverytime(e))
+      })
+    }
+
+    if (params.get('thankyou') && params.get('thankyou') === 'true') {
+      this.showThanksMessage = true
+    } else if (params.get('thankyou') && params.get('thankyou') === 'false') {
+      this.showErrorMessage = true
+    }
+  },
+  methods: {
+    whellEverytime: _throttle(function (e) {
       this.changedPage = true;
 
       this.scrollStatus.wheeling = true
@@ -54,29 +78,8 @@ export default {
       this.scrollTimer = window.setTimeout(() => {
         this.scrollStatus.wheeling = false;
         this.scrollStatus.functionCall = false;
-      }, 2000);
-    }
-
-    window.addEventListener('scroll', (e) => whellEverytime(e))
-
-    const params = new URLSearchParams(document.location.search.substring(1));
-
-    if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
-      this.currentPage = parseInt(params.get('currentPage'));
-      this.changedPage = true;
-      this.hideSolar = true;
-      window.addEventListener('scroll', () => {
-        this.hideSolar = false
-        this.currentPage = 1
-        window.addEventListener('scroll', (e) => whellEverytime(e))
-      })
-    }
-
-    if (params.get('thankyou') && params.get('thankyou') === 'true') {
-      this.showThanksMessage = true
-    } else if (params.get('thankyou') && params.get('thankyou') === 'false') {
-      this.showErrorMessage = true
-    }
+      }, 1000);
+    }, 1000)
   },
   watch: {
     showThanksMessage() {
@@ -89,48 +92,56 @@ export default {
         this.showErrorMessage = false
       }, 8000)
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
 @keyframes page1Solar {
   from {
+    -webkit-transform: translateX(-120vw) scale(0.6);
     transform: translateX(-120vw) scale(0.6);
   }
 
   to {
+    -webkit-transform: translateX(0) scale(1);
     transform: translateX(0) scale(1);
   }
 }
 
 @keyframes page1Lunar {
   0% {
-    transform: translateX(-120vw) scale(1);
+    -webkit-transform: translateX(-120vw) scale(1) translateY(-1vh);
+    transform: translateX(-120vw) scale(1) translateY(-1vh);
   }
 
   100% {
-    transform: translateX(0) scale(0.6);
+    -webkit-transform: translateX(0) scale(0.6) translateY(-1vh);
+    transform: translateX(0) scale(0.6) translateY(-1vh);
   }
 }
 
 @keyframes page2Solar {
   from {
+    -webkit-transform: translateX(0) scale(1);
     transform: translateX(0) scale(1);
   }
 
   to {
+    -webkit-transform: translateX(-120vw) scale(0.6);
     transform: translateX(-120vw) scale(0.6);
   }
 }
 
 @keyframes page2Lunar {
   0% {
-    transform: translateX(0) scale(0.6);
+    -webkit-transform: translateX(0) scale(0.6) translateY(-1vh);
+    transform: translateX(0) scale(0.6) translateY(-1vh);
   }
 
   100% {
-    transform: translateX(-120vw) scale(1);
+    -webkit-transform: translateX(-120vw) scale(1) translateY(-1vh);
+    transform: translateX(-120vw) scale(1) translateY(-1vh);
   }
 }
 
@@ -144,6 +155,7 @@ export default {
     position: absolute;
     bottom: 40px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     background: $contrast-color;
     padding: 20px 40px;
@@ -177,41 +189,69 @@ export default {
   }
 
   &.page-1 {
-
-    .solar,
-    .lunar {
+    .solar {
+      -webkit-animation: page1Solar 0s ease-in-out;
+      animation: page1Solar 0s ease-in-out;
+      -webkit-transform: translateX(0);
       transform: translateX(0);
       transition: transform .4s;
     }
 
-    .solar {
-      animation: page1Solar 3s;
+    .lunar {
+      -webkit-animation: page1Lunar 0s ease-in-out;
+      animation: page1Lunar 0s ease-in-out;
+      -webkit-transform: translateX(0) translateY(-1vh);
+      transform: translateX(0) translateY(-1vh);
+      transition: transform .4s;
     }
 
-    .lunar {
-      animation: page1Lunar 3s;
+    @media screen and (min-width: 768px) {
+      .solar {
+        -webkit-animation: page1Solar 1s ease-in-out;
+        animation: page1Solar 1s ease-in-out;
+      }
+
+      .lunar {
+        -webkit-animation: page1Lunar 1s ease-in-out;
+        animation: page1Lunar 1s ease-in-out;
+      }
     }
   }
 
   &.page-2 {
-
-    .solar,
-    .lunar {
+    .solar {
+      -webkit-transform: translateX(-120vw);
       transform: translateX(-120vw);
+      -webkit-animation: page2Solar 0s ease-in-out;
+      animation: page2Solar 0s ease-in-out;
       transition: transform .4s;
     }
 
-    .solar {
-      animation: page2Solar 3s;
+    .lunar {
+      -webkit-animation: page2Lunar 0s ease-in-out;
+      animation: page2Lunar 0s ease-in-out;
+      -webkit-transform: translateX(-120vw) translateY(-1vh);
+      transform: translateX(-120vw) translateY(-1vh);
+      transition: transform .4s;
     }
 
-    .lunar {
-      animation: page2Lunar 3s;
+    @media screen and (min-width: 768px) {
+      .solar {
+        -webkit-animation: page2Solar 1s ease-in-out;
+        animation: page2Solar 1s ease-in-out;
+      }
+
+      .lunar {
+        -webkit-animation: page2Lunar 1s ease-in-out;
+        animation: page2Lunar 1s ease-in-out;
+      }
     }
   }
 
   .lunar.hideSolar {
-    transform: translateX(-20vw);
+    -webkit-transform: translateX(-20vw) translateY(-1vh);
+    transform: translateX(-20vw) translateY(-1vh);
+    -webkit-animation: none;
     animation: none;
   }
 }

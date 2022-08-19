@@ -23,9 +23,9 @@ export default {
 
 <style lang="scss" scoped>
 .lunar {
-    height: 100vh;
-    max-height: 100vh;
-    margin-left: 20vw;
+    height: 101vh;
+    max-height: 101vh;
+    margin: 0 0 0 20vw;
 
     &__content {
         display: flex;
@@ -44,7 +44,7 @@ export default {
             &__title {
                 background-color: $contrast-color;
                 font-size: 24px;
-                background: -webkit-linear-gradient(180deg, #5977E1 80%, #D4E5E8 100%);
+                background: -webkit-linear-gradient(270deg, #5977E1 80%, #D4E5E8 100%);
                 background-clip: text;
                 text-fill-color: rgba(255, 255, 255, 0);
                 -webkit-background-clip: text;

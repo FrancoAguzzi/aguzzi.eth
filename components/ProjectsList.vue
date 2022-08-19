@@ -143,6 +143,7 @@ export default {
 
         &:hover {
             .project__overview {
+                -webkit-transform: translateX(20px);
                 transform: translateX(20px);
                 transition: all .2s;
             }
