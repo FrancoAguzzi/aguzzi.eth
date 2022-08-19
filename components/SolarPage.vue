@@ -64,6 +64,7 @@ export default {
         &-bg {
             margin: 30px 0 0;
             width: 100%;
+            min-width: 100%;
         }
     }
 }
