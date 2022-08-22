@@ -2,19 +2,20 @@
     <div class="contact">
         <TheHeader :isStar="true"></TheHeader>
         <main>
-            <h1 class="contact__title">Hands on! Let's reach the
-                next level together! </h1>
+            <h1 class="contact__title">
+                Hands on! Let's reach the next level together!
+            </h1>
             <form id="contact-form" class="contact__form" @submit.prevent="goToThanksPage">
-                <input v-model="name" type="text" name="name" id="name" required placeholder="Name*">
-                <input v-model="phone" type="tel" name="phone" id="phone" required placeholder="Phone*">
-                <input v-model="email" type="email" name="email" id="email" required placeholder="E-mail*">
+                <input v-model="name" type="text" name="name" id="name" required placeholder="Name*" />
+                <input v-model="phone" type="tel" name="phone" id="phone" required placeholder="Phone*" />
+                <input v-model="email" type="email" name="email" id="email" required placeholder="E-mail*" />
                 <div class="contact__form-checkbox">
                     <input v-model="pricingUnderstand" type="checkbox" name="pricingUnderstand" id="pricingUnderstand"
-                        required>
+                        required />
                     <label for="pricingUnderstand">I understand Franco's daily rate is £200</label>
                 </div>
                 <textarea v-model="message" name="message" id="message" placeholder="How can I help you?"></textarea>
-                <input class="contact__form-submit" type="submit" :value="inputValue">
+                <input class="contact__form-submit" type="submit" :value="inputValue" />
             </form>
         </main>
     </div>
@@ -30,12 +31,12 @@ export default {
             email: '',
             message: '',
             pricingUnderstand: false,
-            inputValue: 'SUBMIT'
+            inputValue: 'SUBMIT',
         }
     },
     methods: {
         goToThanksPage() {
-            this.inputValue = 'LOADING';
+            this.inputValue = 'LOADING'
 
             setInterval(() => {
                 if (this.inputValue !== 'LOADING...') {
@@ -45,20 +46,26 @@ export default {
                 }
             }, 1000)
 
-            const form = new FormData(document.getElementById('contact-form'));
+            const form = new FormData(document.getElementById('contact-form'))
 
-            fetch('https://script.google.com/macros/s/AKfycbwsV0Whvruneq3e6LFI9hEHxN4q06WwsbqPHA9FLKUdebWFUDvuubYfz7xB7_AMc_WL/exec', {
-                method: 'POST',
-                body: form
-            }).then(() => {
-                window.location.href = '/?thankyou=true'
-            }).catch((e) => {
-                window.location.href = '/?thankyou=false'
-            }).finally(() => {
-                clearInterval
-            })
-        }
-    }
+            fetch(
+                'https://script.google.com/macros/s/AKfycbwsV0Whvruneq3e6LFI9hEHxN4q06WwsbqPHA9FLKUdebWFUDvuubYfz7xB7_AMc_WL/exec',
+                {
+                    method: 'POST',
+                    body: form,
+                }
+            )
+                .then(() => {
+                    window.location.href = '/?thankyou=true'
+                })
+                .catch((e) => {
+                    window.location.href = '/?thankyou=false'
+                })
+                .finally(() => {
+                    clearInterval
+                })
+        },
+    },
 }
 </script>
 
@@ -66,9 +73,7 @@ export default {
 .contact {
     &__title {
         font-family: $secondary-font;
-        background: -webkit-linear-gradient(180deg,
-                #FFE603 9.38%,
-                #EB6035 30.21%);
+        background: -webkit-linear-gradient(180deg, #ffe603 9.38%, #eb6035 30.21%);
         background-clip: text;
         text-fill-color: rgba(255, 255, 255, 0);
         -webkit-background-clip: text;
@@ -123,7 +128,9 @@ export default {
 
         input.contact__form-submit {
             font-family: $secondary-font;
-            background: conic-gradient(from 188.3deg at 50% 50%, #FFE603 0deg, rgba(255, 230, 3, 0) 360deg);
+            background: conic-gradient(from 188.3deg at 50% 50%,
+                    #ffe603 0deg,
+                    rgba(255, 230, 3, 0) 360deg);
             border: none;
             font-size: 28px;
             cursor: pointer;

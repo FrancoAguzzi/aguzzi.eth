@@ -2,15 +2,28 @@
   <div :class="`home page-${changedPage ? currentPage : ''}`">
     <SolarPage v-if="!hideSolar" />
     <LunarPage :class="{ hideSolar }" />
-    <div :class="['home__message', { error: showErrorMessage, thanks: showThanksMessage }]">
-      {{ showErrorMessage ? 'The form could not be successfully submitted, please try again.' : '' }}
-      {{ showThanksMessage ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼' : '' }}
+    <div
+      :class="[
+        'home__message',
+        { error: showErrorMessage, thanks: showThanksMessage },
+      ]"
+    >
+      {{
+        showErrorMessage
+          ? 'The form could not be successfully submitted, please try again.'
+          : ''
+      }}
+      {{
+        showThanksMessage
+          ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
+          : ''
+      }}
     </div>
   </div>
 </template>
 
 <script>
-import _throttle from 'lodash/throttle';
+import _throttle from 'lodash/throttle'
 
 export default {
   name: 'IndexPage',
@@ -23,20 +36,20 @@ export default {
       showErrorMessage: false,
       scrollStatus: {
         wheeling: false,
-        functionCall: false
+        functionCall: false,
       },
-      scrollTimer: null
+      scrollTimer: null,
     }
   },
   mounted() {
     window.addEventListener('scroll', (e) => this.whellEverytime(e))
 
-    const params = new URLSearchParams(document.location.search.substring(1));
+    const params = new URLSearchParams(document.location.search.substring(1))
 
     if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
-      this.currentPage = parseInt(params.get('currentPage'));
-      this.changedPage = true;
-      this.hideSolar = true;
+      this.currentPage = parseInt(params.get('currentPage'))
+      this.changedPage = true
+      this.hideSolar = true
       window.addEventListener('scroll', () => {
         this.hideSolar = false
         this.currentPage = 1
@@ -52,7 +65,7 @@ export default {
   },
   methods: {
     whellEverytime: _throttle(function (e) {
-      this.changedPage = true;
+      this.changedPage = true
 
       this.scrollStatus.wheeling = true
 
@@ -71,15 +84,15 @@ export default {
             this.currentPage--
           }
         }
-        this.scrollStatus.functionCall = true;
+        this.scrollStatus.functionCall = true
       }
 
-      window.clearInterval(this.scrollTimer);
+      window.clearInterval(this.scrollTimer)
       this.scrollTimer = window.setTimeout(() => {
-        this.scrollStatus.wheeling = false;
-        this.scrollStatus.functionCall = false;
-      }, 1000);
-    }, 1000)
+        this.scrollStatus.wheeling = false
+        this.scrollStatus.functionCall = false
+      }, 1000)
+    }, 1000),
   },
   watch: {
     showThanksMessage() {
@@ -91,7 +104,7 @@ export default {
       setTimeout(() => {
         this.showErrorMessage = false
       }, 8000)
-    }
+    },
   },
 }
 </script>
@@ -149,7 +162,7 @@ export default {
   width: 100vw;
   overflow: hidden;
   display: flex;
-  transition: transform .4s;
+  transition: transform 0.4s;
 
   &__message {
     position: absolute;
@@ -194,7 +207,7 @@ export default {
       animation: page1Solar 0s ease-in-out;
       -webkit-transform: translateX(0);
       transform: translateX(0);
-      transition: transform .4s;
+      transition: transform 0.4s;
     }
 
     .lunar {
@@ -202,7 +215,7 @@ export default {
       animation: page1Lunar 0s ease-in-out;
       -webkit-transform: translateX(0) translateY(-1vh);
       transform: translateX(0) translateY(-1vh);
-      transition: transform .4s;
+      transition: transform 0.4s;
     }
 
     @media screen and (min-width: 768px) {
@@ -224,7 +237,7 @@ export default {
       transform: translateX(-120vw);
       -webkit-animation: page2Solar 0s ease-in-out;
       animation: page2Solar 0s ease-in-out;
-      transition: transform .4s;
+      transition: transform 0.4s;
     }
 
     .lunar {
@@ -232,7 +245,7 @@ export default {
       animation: page2Lunar 0s ease-in-out;
       -webkit-transform: translateX(-120vw) translateY(-1vh);
       transform: translateX(-120vw) translateY(-1vh);
-      transition: transform .4s;
+      transition: transform 0.4s;
     }
 
     @media screen and (min-width: 768px) {
