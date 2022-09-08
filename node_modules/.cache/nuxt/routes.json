@@ -7,11 +7,18 @@
     "_name": "_03806226"
   },
   {
-    "name": "projects",
-    "path": "/projects",
-    "component": "/Users/franco/aguzzi.eth/pages/projects.vue",
-    "chunkName": "pages/projects",
-    "_name": "_8d8a0706"
+    "name": "portfolio",
+    "path": "/portfolio",
+    "component": "/Users/franco/aguzzi.eth/pages/portfolio/index.vue",
+    "chunkName": "pages/portfolio/index",
+    "_name": "_7439f598"
+  },
+  {
+    "name": "portfolio-projects",
+    "path": "/portfolio/projects",
+    "component": "/Users/franco/aguzzi.eth/pages/portfolio/projects.vue",
+    "chunkName": "pages/portfolio/projects",
+    "_name": "_e5e397b8"
   },
   {
     "name": "index",
