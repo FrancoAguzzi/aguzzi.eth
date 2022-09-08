@@ -14,29 +14,29 @@
 export default {
   props: {
     value: String,
-    isEditing: Boolean,
+    isEditing: Boolean
   },
-  data() {
+  data () {
     return {
       file: '',
-      isInComposition: false,
+      isInComposition: false
     }
   },
   watch: {
-    value() {
+    value () {
       this.file = this.value
     },
-    isEditing() {
+    isEditing () {
       this.onType()
       this.$refs.textarea.focus()
     },
-    file() {
+    file () {
       this.onType()
       this.$emit('input', this.file)
-    },
+    }
   },
   methods: {
-    onType() {
+    onType () {
       const el = this.$refs.textarea
 
       el.style.height = 'auto'
@@ -69,7 +69,7 @@ export default {
       event.target.value = this.file // required to make the cursor stay in place.
       event.target.selectionEnd = event.target.selectionStart =
         originalSelectionStart - 1
-    },
-  },
+    }
+  }
 }
 </script>

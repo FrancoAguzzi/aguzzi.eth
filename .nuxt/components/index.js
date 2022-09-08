@@ -9,9 +9,7 @@ function wrapFunctional(options) {
     return options
   }
 
-  const propKeys = Array.isArray(options.props)
-    ? options.props
-    : Object.keys(options.props || {})
+  const propKeys = Array.isArray(options.props) ? options.props : Object.keys(options.props || {})
 
   return {
     render(h) {
@@ -26,16 +24,12 @@ function wrapFunctional(options) {
         }
       }
 
-      return h(
-        options,
-        {
-          on: this.$listeners,
-          attrs,
-          props,
-          scopedSlots: this.$scopedSlots,
-        },
-        this.$slots.default
-      )
-    },
+      return h(options, {
+        on: this.$listeners,
+        attrs,
+        props,
+        scopedSlots: this.$scopedSlots,
+      }, this.$slots.default)
+    }
   }
 }

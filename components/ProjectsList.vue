@@ -3,13 +3,9 @@
     <li v-for="(project, index) in projects" class="project">
       <a :href="project.url">
         <div class="project__bg"></div>
-        <div
-          class="project__preview"
-          :style="{
-            backgroundImage: `url(${require(`../assets/images/${projects[index].imageUrl}`)})`,
-          }"
-          :alt="`${name} website screenshot`"
-        ></div>
+        <div class="project__preview" :style="{
+          backgroundImage: `url(${require(`../assets/images/${projects[index].imageUrl}`)})`,
+        }" :alt="`${name} website screenshot`"></div>
         <div class="project__overview">
           <h1 class="project__overview-title">{{ project.name }}</h1>
           <h2 class="project__overview-description">
@@ -100,6 +96,14 @@ export default {
     margin-top: 60px;
     max-width: 1024px;
 
+    @media screen and (min-width: 768px) {
+      height: 300px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 500px;
+    }
+
     a {
       text-decoration: none;
       color: $font-color;
@@ -111,11 +115,9 @@ export default {
       top: 0;
       width: 100%;
       height: 100%;
-      background: -webkit-linear-gradient(
-        180deg,
-        rgba(217, 217, 217, 0) 0%,
-        #5977e1 99.99%
-      );
+      background: -webkit-linear-gradient(180deg,
+          rgba(217, 217, 217, 0) 0%,
+          #5977e1 99.99%);
       z-index: 2;
     }
 

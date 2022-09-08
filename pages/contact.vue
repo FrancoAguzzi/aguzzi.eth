@@ -1,6 +1,6 @@
 <template>
     <div class="contact">
-        <TheHeader :isStar="true"></TheHeader>
+        <TheHeader :backToLunarSection="toLunarSection" :backToProjects="toProjects" :isStar="true"></TheHeader>
         <main>
             <h1 class="contact__title">
                 Hands on! Let's reach the next level together!
@@ -32,7 +32,21 @@ export default {
             message: '',
             pricingUnderstand: false,
             inputValue: 'SUBMIT',
+            toLunarSection: false,
+            toProjects: false
         }
+    },
+    mounted() {
+        const params = new URLSearchParams(document.location.search.substring(1))
+
+        if (params.get('fromLunar') && Boolean(params.get('fromLunar'))) {
+            this.toLunarSection = true
+        }
+
+        if (params.get('fromProjects') && Boolean(params.get('fromProjects'))) {
+            this.toProjects = true
+        }
+
     },
     methods: {
         goToThanksPage() {
@@ -56,10 +70,10 @@ export default {
                 }
             )
                 .then(() => {
-                    window.location.href = '/?thankyou=true'
+                    window.location.href = '/portfolio?thankyou=true'
                 })
                 .catch((e) => {
-                    window.location.href = '/?thankyou=false'
+                    window.location.href = '/portfolio?thankyou=false'
                 })
                 .finally(() => {
                     clearInterval

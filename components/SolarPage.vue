@@ -24,6 +24,7 @@ export default {
 .solar {
   height: 101vh;
   max-height: 101vh;
+  margin-bottom: 20vh;
 
   &__content {
     height: 80vh;
@@ -35,11 +36,12 @@ export default {
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
     max-width: 1024px;
     margin: 0 auto;
+    position: relative;
 
     &-texts {
       text-align: center;
       width: 80%;
-      margin: 0 auto;
+      margin: 10vh auto;
 
       p {
         font-size: 32px;
@@ -57,16 +59,37 @@ export default {
         @media screen and (min-width: 768px) {
           font-size: 30px;
           max-width: 500px;
-          margin-left: auto;
-          margin-bottom: -10vh;
         }
+
+        @media screen and (min-width: 1024px) {
+          font-size: 36px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        margin: 7vh auto;
       }
     }
 
     &-bg {
       margin: 30px 0 0;
-      width: 100% !important;
-      min-width: 100% !important;
+      height: 350px;
+      right: 0;
+      transform: translateX(60vw);
+      position: absolute;
+      bottom: 10vh;
+
+      @media screen and (min-width: 768px) {
+        height: 600px;
+        bottom: -3vh;
+      }
+
+      @media screen and (min-width: 1024px) {
+        height: 800px;
+        right: 0;
+        bottom: -20vh;
+        z-index: -1;
+      }
     }
   }
 }

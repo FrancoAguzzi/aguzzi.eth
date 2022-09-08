@@ -1,271 +1,259 @@
 <template>
-  <div :class="`home page-${changedPage ? currentPage : ''}`">
-    <SolarPage v-if="!hideSolar" />
-    <LunarPage :class="{ hideSolar }" />
-    <div
-      :class="[
-        'home__message',
-        { error: showErrorMessage, thanks: showThanksMessage },
-      ]"
-    >
-      {{
-        showErrorMessage
-          ? 'The form could not be successfully submitted, please try again.'
-          : ''
-      }}
-      {{
-        showThanksMessage
-          ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
-          : ''
-      }}
-    </div>
-  </div>
+    <main>
+        <div class="topImage"></div>
+
+        <header class="content">
+            <img width="200px" src="~/assets/images/acenando.png" class="content__memoji" />
+            <h1 class="content__title">Hi, I'm <a href="/portfolio">Franco Aguzzi</a></h1>
+            <h2 class="content__subtitle">I help building web's future</h2>
+            <p class="content__description">Working as a freelance front-end developer, I help purposeful clients to
+                develop their business through technology. If you want to know more
+                about me, consider navigating through these links:</p>
+
+            <ul class="content__socialMedias">
+                <li>
+                    <a href="/portfolio">
+                        <img src="~/assets/images/web.png" alt="Personal website icon" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/franco-aguzzi-546506184/">
+                        <img src="~/assets/images/linkedin.png" alt="LinkedIn logo" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/FrancoAguzzi">
+                        <img src="~/assets/images/github.png" alt="Github logo" />
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:faguzzi3@gmail.com">
+                        <img src="~/assets/images/email.png" alt="Email symbol" />
+                    </a>
+                </li>
+            </ul>
+        </header>
+
+        <div class="bottomImage"></div>
+    </main>
 </template>
 
 <script>
-import _throttle from 'lodash/throttle'
-
 export default {
-  name: 'IndexPage',
-  data() {
-    return {
-      currentPage: 1,
-      changedPage: false,
-      hideSolar: false,
-      showThanksMessage: false,
-      showErrorMessage: false,
-      scrollStatus: {
-        wheeling: false,
-        functionCall: false,
-      },
-      scrollTimer: null,
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', (e) => this.whellEverytime(e))
-
-    const params = new URLSearchParams(document.location.search.substring(1))
-
-    if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
-      this.currentPage = parseInt(params.get('currentPage'))
-      this.changedPage = true
-      this.hideSolar = true
-      window.addEventListener('scroll', () => {
-        this.hideSolar = false
-        this.currentPage = 1
-        window.addEventListener('scroll', (e) => this.whellEverytime(e))
-      })
-    }
-
-    if (params.get('thankyou') && params.get('thankyou') === 'true') {
-      this.showThanksMessage = true
-    } else if (params.get('thankyou') && params.get('thankyou') === 'false') {
-      this.showErrorMessage = true
-    }
-  },
-  methods: {
-    whellEverytime: _throttle(function (e) {
-      this.changedPage = true
-
-      this.scrollStatus.wheeling = true
-
-      if (!this.scrollStatus.functionCall) {
-        const shouldGoToNextPage = window.scrollY > 0
-        if (shouldGoToNextPage) {
-          if (this.currentPage === 2) {
-            return
-          } else {
-            this.currentPage++
-          }
-        } else {
-          if (this.currentPage === 1) {
-            return
-          } else {
-            this.currentPage--
-          }
-        }
-        this.scrollStatus.functionCall = true
-      }
-
-      window.clearInterval(this.scrollTimer)
-      this.scrollTimer = window.setTimeout(() => {
-        this.scrollStatus.wheeling = false
-        this.scrollStatus.functionCall = false
-      }, 1000)
-    }, 1000),
-  },
-  watch: {
-    showThanksMessage() {
-      setTimeout(() => {
-        this.showThanksMessage = false
-      }, 8000)
-    },
-    showErrorMessage() {
-      setTimeout(() => {
-        this.showErrorMessage = false
-      }, 8000)
-    },
-  },
+    name: 'IndexPage',
 }
 </script>
 
 <style lang="scss">
-@keyframes page1Solar {
-  from {
-    -webkit-transform: translateX(-120vw) scale(0.6);
-    transform: translateX(-120vw) scale(0.6);
-  }
-
-  to {
-    -webkit-transform: translateX(0) scale(1);
-    transform: translateX(0) scale(1);
-  }
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-@keyframes page1Lunar {
-  0% {
-    -webkit-transform: translateX(-120vw) scale(1) translateY(-1vh);
-    transform: translateX(-120vw) scale(1) translateY(-1vh);
-  }
-
-  100% {
-    -webkit-transform: translateX(0) scale(0.6) translateY(-1vh);
-    transform: translateX(0) scale(0.6) translateY(-1vh);
-  }
+:root {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-size: 1rem;
 }
 
-@keyframes page2Solar {
-  from {
-    -webkit-transform: translateX(0) scale(1);
-    transform: translateX(0) scale(1);
-  }
-
-  to {
-    -webkit-transform: translateX(-120vw) scale(0.6);
-    transform: translateX(-120vw) scale(0.6);
-  }
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #83cbff;
 }
 
-@keyframes page2Lunar {
-  0% {
-    -webkit-transform: translateX(0) scale(0.6) translateY(-1vh);
-    transform: translateX(0) scale(0.6) translateY(-1vh);
-  }
-
-  100% {
-    -webkit-transform: translateX(-120vw) scale(1) translateY(-1vh);
-    transform: translateX(-120vw) scale(1) translateY(-1vh);
-  }
+a:visited {
+    color: inherit;
 }
 
-.home {
-  width: 100vw;
-  overflow: hidden;
-  display: flex;
-  transition: transform 0.4s;
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: min(100%, 68ch);
+    font-size: clamp(2rem, -0.4742rem + 6.1856vw, 2.75rem);
+    height: 80vh;
+    margin: 10vh 0;
 
-  &__message {
+    &:before {
+        content: '';
+        height: 1px;
+        width: 100vw;
+        box-shadow: 0 0 100px 250px #E4F0FC;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        bottom: 35%;
+    }
+
+    &:after {
+        content: '';
+        height: 1px;
+        width: 100vw;
+        box-shadow: 0 0 100px 250px #E4F0FC;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        top: 40%;
+    }
+}
+
+.topImage,
+.bottomImage {
+    width: 100vw;
+    padding-top: 100%;
+    background-size: cover;
     position: absolute;
-    bottom: 40px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    background: $contrast-color;
-    padding: 20px 40px;
-    border-radius: 6px;
-    border: 2px solid $font-color;
-    font-size: 24px;
-    font-family: $secondary-font;
-    display: none;
-    min-width: 200px;
+}
 
-    @media screen and (min-width: 768px) {
-      font-size: 32px;
+.topImage {
+    background: url('~assets/images/topBgImage.png');
+    background-position: left 30% top;
+    top: 0;
+    left: 0;
+}
+
+.bottomImage {
+    background: url('~assets/images/bottomBgImage.png');
+    background-position: left 60% top 25%;
+    bottom: 0;
+    left: 0;
+}
+
+.content__socialMedias {
+    list-style: none;
+    margin: 40px 0 0 0;
+    padding: 0;
+    display: flex;
+
+    li {
+        transition: all .2s;
+
+        img {
+            width: 60px;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+            transition: all .2s;
+
+        }
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+}
+
+.content__title {
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-top: 30px;
+    color: #72abe4;
+    text-align: center;
+
+    a {
+        font-weight: bold;
+        transition: all .2s;
+        color: #72abe4;
+
+        &:hover {
+            color: #438bd3;
+            transition: all .2s;
+        }
+    }
+}
+
+.content__subtitle {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 150%;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 1rem + 1.25vw, 2rem);
+    color: #72abe4;
+}
+
+.content__description {
+    text-align: center;
+    margin-top: 50px;
+    line-height: 150%;
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+    color: #72abe4;
+    font-family: sans-serif;
+    margin: 30px 30px 0;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #E4F0FC;
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        justify-content: center;
     }
 
-    &.error {
-      background-color: rgba(222, 130, 130, 0.641);
-      border-color: rgb(250, 141, 141);
-      display: block;
+    .content {
+        width: 70%;
+
+        &:after {
+            height: 100vh;
+            width: 1px;
+            left: 25%;
+            top: 0;
+        }
+
+        &:before {
+            height: 100vh;
+            width: 1px;
+            left: auto;
+            right: 25%;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+
+        &__title {
+            margin-top: 60px;
+        }
+
+        &__subtitle {
+            margin-top: 30px;
+            font-size: 28px;
+        }
+
+        &__description {
+            margin-top: 40px;
+            max-width: 570px;
+            font-size: 22px;
+        }
     }
 
-    &.thanks {
-      background-color: rgba(186, 225, 138, 0.8);
-      border-color: rgb(143, 239, 105);
-      display: block;
-    }
-  }
-
-  .solar,
-  .lunar {
-    min-width: 100vw;
-  }
-
-  &.page-1 {
-    .solar {
-      -webkit-animation: page1Solar 0s ease-in-out;
-      animation: page1Solar 0s ease-in-out;
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      transition: transform 0.4s;
+    .topImage {
+        height: 100vh;
+        width: 25%;
+        background-size: auto 100%;
+        background-position: left 70% bottom;
     }
 
-    .lunar {
-      -webkit-animation: page1Lunar 0s ease-in-out;
-      animation: page1Lunar 0s ease-in-out;
-      -webkit-transform: translateX(0) translateY(-1vh);
-      transform: translateX(0) translateY(-1vh);
-      transition: transform 0.4s;
+    .bottomImage {
+        left: auto;
+        right: 0;
+        background-size: cover;
+        background-position: right 20% top 35%;
+        height: 100vh;
+        width: 25%;
     }
-
-    @media screen and (min-width: 768px) {
-      .solar {
-        -webkit-animation: page1Solar 1s ease-in-out;
-        animation: page1Solar 1s ease-in-out;
-      }
-
-      .lunar {
-        -webkit-animation: page1Lunar 1s ease-in-out;
-        animation: page1Lunar 1s ease-in-out;
-      }
-    }
-  }
-
-  &.page-2 {
-    .solar {
-      -webkit-transform: translateX(-120vw);
-      transform: translateX(-120vw);
-      -webkit-animation: page2Solar 0s ease-in-out;
-      animation: page2Solar 0s ease-in-out;
-      transition: transform 0.4s;
-    }
-
-    .lunar {
-      -webkit-animation: page2Lunar 0s ease-in-out;
-      animation: page2Lunar 0s ease-in-out;
-      -webkit-transform: translateX(-120vw) translateY(-1vh);
-      transform: translateX(-120vw) translateY(-1vh);
-      transition: transform 0.4s;
-    }
-
-    @media screen and (min-width: 768px) {
-      .solar {
-        -webkit-animation: page2Solar 1s ease-in-out;
-        animation: page2Solar 1s ease-in-out;
-      }
-
-      .lunar {
-        -webkit-animation: page2Lunar 1s ease-in-out;
-        animation: page2Lunar 1s ease-in-out;
-      }
-    }
-  }
-
-  .lunar.hideSolar {
-    -webkit-transform: translateX(-20vw) translateY(-1vh);
-    transform: translateX(-20vw) translateY(-1vh);
-    -webkit-animation: none;
-    animation: none;
-  }
 }
 </style>

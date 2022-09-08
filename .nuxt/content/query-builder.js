@@ -1,9 +1,9 @@
 export default class QueryBuilder {
-  constructor(url, { deep = false, text = false } = {}) {
+  constructor (url, { deep = false, text = false } = {}) {
     this.url = url
     this.params = {
       deep,
-      text,
+      text
     }
   }
 
@@ -12,7 +12,7 @@ export default class QueryBuilder {
    * @param {Array} keys - Array of fields to be picked.
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  only(keys) {
+  only (keys) {
     this.params.only = keys
     return this
   }
@@ -22,7 +22,7 @@ export default class QueryBuilder {
    * @param {Array} keys - Array of fields to be picked.
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  without(keys) {
+  without (keys) {
     this.params.without = keys
     return this
   }
@@ -33,7 +33,7 @@ export default class QueryBuilder {
    * @param {string} direction - Direction of sort (asc / desc).
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  sortBy(field, direction = 'asc') {
+  sortBy (field, direction = 'asc') {
     this.params.sortBy = this.params.sortBy || []
     this.params.sortBy.push({ [field]: direction })
     return this
@@ -44,7 +44,7 @@ export default class QueryBuilder {
    * @param {Object} query - Where query.
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  where(query) {
+  where (query) {
     this.params.where = query
     return this
   }
@@ -55,7 +55,7 @@ export default class QueryBuilder {
    * @param {string} value - Value of search (means query equals to field).
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  search(query, value) {
+  search (query, value) {
     this.params.search = { query, value }
     return this
   }
@@ -66,7 +66,7 @@ export default class QueryBuilder {
    * @param {Object} options - Options to surround (before / after).
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  surround(slugOrPath, options) {
+  surround (slugOrPath, options) {
     this.params.surround = { slugOrPath, options }
     return this
   }
@@ -76,7 +76,7 @@ export default class QueryBuilder {
    * @param {number} n - Limit number.
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  limit(n) {
+  limit (n) {
     this.params.limit = n
     return this
   }
@@ -86,7 +86,7 @@ export default class QueryBuilder {
    * @param {number} n - Skip number.
    * @returns {QueryBuilder} Returns current instance to be chained
    */
-  skip(n) {
+  skip (n) {
     this.params.skip = n
     return this
   }
@@ -95,11 +95,11 @@ export default class QueryBuilder {
    * Call server middleware with generated params
    * @returns {(Object|Array)} Returns processed data
    */
-  fetch() {
+  fetch () {
     return fetch(this.url, {
       method: 'POST',
       body: JSON.stringify(this.params),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' }
     }).then((response) => {
       if (!response.ok) {
         const error = new Error(response.statusText)

@@ -4,18 +4,10 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _03806226 = () =>
-  interopDefault(
-    import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */)
-  )
-const _8d8a0706 = () =>
-  interopDefault(
-    import('../pages/projects.vue' /* webpackChunkName: "pages/projects" */)
-  )
-const _2d4cb3df = () =>
-  interopDefault(
-    import('../pages/index.vue' /* webpackChunkName: "pages/index" */)
-  )
+const _03806226 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
+const _7439f598 = () => interopDefault(import('../pages/portfolio/index.vue' /* webpackChunkName: "pages/portfolio/index" */))
+const _e5e397b8 = () => interopDefault(import('../pages/portfolio/projects.vue' /* webpackChunkName: "pages/portfolio/projects" */))
+const _2d4cb3df = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -28,34 +20,34 @@ export const routerOptions = {
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
 
-  routes: [
-    {
-      path: '/contact',
-      component: _03806226,
-      name: 'contact',
-    },
-    {
-      path: '/projects',
-      component: _8d8a0706,
-      name: 'projects',
-    },
-    {
-      path: '/',
-      component: _2d4cb3df,
-      name: 'index',
-    },
-  ],
+  routes: [{
+    path: "/contact",
+    component: _03806226,
+    name: "contact"
+  }, {
+    path: "/portfolio",
+    component: _7439f598,
+    name: "portfolio"
+  }, {
+    path: "/portfolio/projects",
+    component: _e5e397b8,
+    name: "portfolio-projects"
+  }, {
+    path: "/",
+    component: _2d4cb3df,
+    name: "index"
+  }],
 
-  fallback: false,
+  fallback: false
 }
 
-export function createRouter(ssrContext, config) {
+export function createRouter (ssrContext, config) {
   const base = (config._app && config._app.basePath) || routerOptions.base
-  const router = new Router({ ...routerOptions, base })
+  const router = new Router({ ...routerOptions, base  })
 
   // TODO: remove in Nuxt 3
   const originalPush = router.push
-  router.push = function push(location, onComplete = emptyFn, onAbort) {
+  router.push = function push (location, onComplete = emptyFn, onAbort) {
     return originalPush.call(this, location, onComplete, onAbort)
   }
 

@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="['nuxt-content-container', { 'is-editing': isEditing }]"
-    :is="tag"
-  >
+  <div :class="['nuxt-content-container', { 'is-editing': isEditing }]" :is="tag">
     <client-only>
       <editor
         v-show="isEditing"
@@ -31,23 +28,23 @@ export default {
   name: 'NuxtContent',
   components: {
     NuxtContentDev: NuxtContent,
-    Editor,
+    Editor
   },
   props: NuxtContent.props,
-  data() {
+  data () {
     return {
       classes: [],
       isEditing: false,
       file: null,
-      id: null,
+      id: null
     }
   },
   computed: {
-    fileUrl() {
+    fileUrl () {
       return `/_content${this.document.path}${this.document.extension}`
-    },
+    }
   },
-  mounted() {
+  mounted () {
     if (this.$vnode.data.attrs && this.$vnode.data.attrs.id) {
       this.id = this.$vnode.data.attrs.id
     }
@@ -57,7 +54,7 @@ export default {
         classes = this.$vnode.data.class
       } else if (typeof this.$vnode.data.class === 'object') {
         const keys = Object.keys(this.$vnode.data.class)
-        classes = keys.filter((key) => this.$vnode.data.class[key])
+        classes = keys.filter(key => this.$vnode.data.class[key])
       } else {
         classes = this.$vnode.data.class
       }
@@ -71,7 +68,7 @@ export default {
     }
   },
   methods: {
-    async toggleEdit() {
+    async toggleEdit () {
       if (this.isEditing) {
         await this.saveFile()
         this.isEditing = false
@@ -82,19 +79,16 @@ export default {
       // Start editing mode
       this.isEditing = true
     },
-    async fetchFile() {
-      this.file = await fetch(this.fileUrl).then((res) => res.text())
+    async fetchFile () {
+      this.file = await fetch(this.fileUrl).then(res => res.text())
     },
-    async saveFile() {
-      await fetch(this.fileUrl, {
-        method: 'PUT',
-        body: JSON.stringify({ file: this.file }),
-      }).then((res) => res.json())
+    async saveFile () {
+      await fetch(this.fileUrl, { method: 'PUT', body: JSON.stringify({ file: this.file }) }).then(res => res.json())
     },
-    waitFor(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms))
-    },
-  },
+    waitFor (ms) {
+      return new Promise(resolve => setTimeout(resolve, ms))
+    }
+  }
 }
 </script>
 

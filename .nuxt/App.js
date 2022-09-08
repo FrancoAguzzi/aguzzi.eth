@@ -1,20 +1,7 @@
 import Vue from 'vue'
-import {
-  decode,
-  parsePath,
-  withoutBase,
-  withoutTrailingSlash,
-  normalizeURL,
-} from 'ufo'
+import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL } from 'ufo'
 
-import {
-  getMatchedComponentsInstances,
-  getChildrenComponentInstancesUsingFetch,
-  promisify,
-  globalHandleError,
-  urlJoin,
-  sanitizeComponent,
-} from './utils'
+import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
 import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
@@ -25,52 +12,44 @@ import '../node_modules/prismjs/themes/prism.css'
 
 import _6f6c098b from './layouts/default.vue'
 
-const layouts = { _default: sanitizeComponent(_6f6c098b) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b) }
 
 export default {
-  render(h, props) {
+  render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
 
     const layoutEl = h(this.layout || 'nuxt')
-    const templateEl = h(
-      'div',
-      {
-        domProps: {
-          id: '__layout',
-        },
-        key: this.layoutName,
+    const templateEl = h('div', {
+      domProps: {
+        id: '__layout'
       },
-      [layoutEl]
-    )
+      key: this.layoutName
+    }, [layoutEl])
 
-    const transitionEl = h(
-      'transition',
-      {
-        props: {
-          name: 'layout',
-          mode: 'out-in',
-        },
-        on: {
-          beforeEnter(el) {
-            // Ensure to trigger scroll event after calling scrollBehavior
-            window.$nuxt.$nextTick(() => {
-              window.$nuxt.$emit('triggerScroll')
-            })
-          },
-        },
+    const transitionEl = h('transition', {
+      props: {
+        name: 'layout',
+        mode: 'out-in'
       },
-      [templateEl]
-    )
+      on: {
+        beforeEnter (el) {
+          // Ensure to trigger scroll event after calling scrollBehavior
+          window.$nuxt.$nextTick(() => {
+            window.$nuxt.$emit('triggerScroll')
+          })
+        }
+      }
+    }, [templateEl])
 
-    return h(
-      'div',
-      {
-        domProps: {
-          id: '__nuxt',
-        },
-      },
-      [loadingEl, h(NuxtBuildIndicator), transitionEl]
-    )
+    return h('div', {
+      domProps: {
+        id: '__nuxt'
+      }
+    }, [
+      loadingEl,
+      h(NuxtBuildIndicator),
+      transitionEl
+    ])
   },
 
   data: () => ({
@@ -79,13 +58,13 @@ export default {
     layout: null,
     layoutName: '',
 
-    nbFetching: 0,
-  }),
+    nbFetching: 0
+    }),
 
-  beforeCreate() {
+  beforeCreate () {
     Vue.util.defineReactive(this, 'nuxt', this.$options.nuxt)
   },
-  created() {
+  created () {
     // Add this.$nuxt in child instances
     this.$root.$options.$nuxt = this
 
@@ -104,30 +83,30 @@ export default {
     this.context = this.$options.context
   },
 
-  async mounted() {
+  async mounted () {
     this.$loading = this.$refs.loading
   },
 
   watch: {
-    'nuxt.err': 'errorChanged',
+    'nuxt.err': 'errorChanged'
   },
 
   computed: {
-    isOffline() {
+    isOffline () {
       return !this.isOnline
     },
 
-    isFetching() {
+    isFetching () {
       return this.nbFetching > 0
     },
 
-    isPreview() {
+    isPreview () {
       return Boolean(this.$options.previewData)
     },
   },
 
   methods: {
-    refreshOnlineStatus() {
+    refreshOnlineStatus () {
       if (process.client) {
         if (typeof window.navigator.onLine === 'undefined') {
           // If the browser doesn't support connection status reports
@@ -140,7 +119,7 @@ export default {
       }
     },
 
-    async refresh() {
+    async refresh () {
       const pages = getMatchedComponentsInstances(this.$route)
 
       if (!pages.length) {
@@ -159,20 +138,19 @@ export default {
           p.push(page.$fetch())
         } else {
           // Get all component instance to call $fetch
-          for (const component of getChildrenComponentInstancesUsingFetch(
-            page.$vnode.componentInstance
-          )) {
+          for (const component of getChildrenComponentInstancesUsingFetch(page.$vnode.componentInstance)) {
             p.push(component.$fetch())
           }
         }
 
         if (page.$options.asyncData) {
           p.push(
-            promisify(page.$options.asyncData, this.context).then((newData) => {
-              for (const key in newData) {
-                Vue.set(page.$data, key, newData[key])
-              }
-            })
+            promisify(page.$options.asyncData, this.context)
+              .then((newData) => {
+                for (const key in newData) {
+                  Vue.set(page.$data, key, newData[key])
+                }
+              })
           )
         }
 
@@ -187,7 +165,7 @@ export default {
       }
       this.$loading.finish()
     },
-    errorChanged() {
+    errorChanged () {
       if (this.nuxt.err) {
         if (this.$loading) {
           if (this.$loading.fail) {
@@ -198,7 +176,7 @@ export default {
           }
         }
 
-        let errorLayout = (NuxtError.options || NuxtError).layout
+        let errorLayout = (NuxtError.options || NuxtError).layout;
 
         if (typeof errorLayout === 'function') {
           errorLayout = errorLayout(this.context)
@@ -208,11 +186,9 @@ export default {
       }
     },
 
-    setLayout(layout) {
-      if (layout && typeof layout !== 'string') {
-        throw new Error(
-          '[nuxt] Avoid using non-string value as layout property.'
-        )
+    setLayout (layout) {
+      if(layout && typeof layout !== 'string') {
+        throw new Error('[nuxt] Avoid using non-string value as layout property.')
       }
 
       if (!layout || !layouts['_' + layout]) {
@@ -222,7 +198,7 @@ export default {
       this.layout = layouts['_' + layout]
       return this.layout
     },
-    loadLayout(layout) {
+    loadLayout (layout) {
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }
@@ -231,6 +207,6 @@ export default {
   },
 
   components: {
-    NuxtLoading,
-  },
+    NuxtLoading
+  }
 }
