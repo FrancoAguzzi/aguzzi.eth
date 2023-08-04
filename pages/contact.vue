@@ -9,11 +9,11 @@
                 <input v-model="name" type="text" name="name" id="name" required placeholder="Name*" />
                 <input v-model="phone" type="tel" name="phone" id="phone" required placeholder="Phone*" />
                 <input v-model="email" type="email" name="email" id="email" required placeholder="E-mail*" />
-                <div class="contact__form-checkbox">
+                <!-- <div class="contact__form-checkbox">
                     <input v-model="pricingUnderstand" type="checkbox" name="pricingUnderstand" id="pricingUnderstand"
                         required />
                     <label for="pricingUnderstand">I understand Franco's daily rate is £200</label>
-                </div>
+                </div> -->
                 <textarea v-model="message" name="message" id="message" placeholder="How can I help you?"></textarea>
                 <input class="contact__form-submit" type="submit" :value="inputValue" />
             </form>
@@ -30,7 +30,7 @@ export default {
             phone: '',
             email: '',
             message: '',
-            pricingUnderstand: false,
+            // pricingUnderstand: false,
             inputValue: 'SUBMIT',
             toLunarSection: false,
             toProjects: false

@@ -6,7 +6,7 @@
             <img width="200px" src="~/assets/images/acenando.png" class="content__memoji" />
             <h1 class="content__title">Hi, I'm <a href="/portfolio">Franco Aguzzi</a></h1>
             <h2 class="content__subtitle">I help building web's future</h2>
-            <p class="content__description">Working as a freelance front-end developer, I help purposeful clients to
+            <p class="content__description">Working as a full-stack developer, I help purposeful clients to
                 develop their business through technology. If you want to know more
                 about me, consider navigating through these links:</p>
 

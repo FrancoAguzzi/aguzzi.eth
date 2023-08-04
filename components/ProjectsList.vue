@@ -1,7 +1,7 @@
 <template>
   <ul class="projects">
     <li v-for="(project, index) in projects" class="project">
-      <a :href="project.url">
+      <a :href="project.url" target="_blank">
         <div class="project__bg"></div>
         <div class="project__preview" :style="{
           backgroundImage: `url(${require(`../assets/images/${projects[index].imageUrl}`)})`,
@@ -23,6 +23,18 @@ export default {
   data() {
     return {
       projects: [
+        {
+          url: 'https://namehash.io/',
+          name: 'Namehash [ENS Marketplace]',
+          shortDescription: 'FullStack dev.',
+          imageUrl: 'namehash.png',
+        },
+        {
+          url: 'https://blockful.io/',
+          name: 'Blockful.io',
+          shortDescription: 'FullStack dev.',
+          imageUrl: 'blockful.png',
+        },
         {
           url: 'https://www.cerave.com/about-cerave/the-ceramides-difference',
           name: 'Cerave US',
@@ -132,7 +144,7 @@ export default {
     }
 
     &__overview {
-      padding: 30px 80px 10px 30px;
+      padding: 30px 120px 10px 30px;
       margin: 0 0 10px -20px;
       background-color: $contrast-color;
       z-index: 3;

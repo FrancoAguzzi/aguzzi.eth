@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Franco Aguzzi freelance dev',
+    title: 'Franco Aguzzi fullstack dev',
     htmlAttrs: {
       lang: 'en',
     },

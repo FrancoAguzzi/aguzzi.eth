@@ -7,13 +7,12 @@
       <img src="../assets/images/arrow.png" alt="Back to home cta image" />
     </nuxt-link>
     <div v-if="!isStar" class="header__content">
-      <h1 v-if="!isLunar" class="header__content-pricing"><b>DAY RATE</b> £200</h1>
+      <!-- <h1 v-if="!isLunar" class="header__content-pricing"><b>DAY RATE</b> £200</h1> -->
       <nuxt-link :to="`${isLunar ? '/contact?fromLunar=true' : isProjects ? '/contact?fromProjects=true' : '/contact'}`"
         class="header__content-contact">CONTACT
       </nuxt-link>
     </div>
-    <img v-if="!isLunar && !isStar && !isProjects" class="header__image" src="../assets/images/sun.png"
-      alt="Sun Image" />
+    <img v-if="!isLunar && !isStar && !isProjects" class="header__image" src="../assets/images/sun.png" alt="Sun Image" />
     <img v-if="isStar" class="header__image" src="../assets/images/star.png" alt="Star Image" />
   </header>
 </template>
