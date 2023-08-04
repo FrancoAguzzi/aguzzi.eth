@@ -1,7 +1,7 @@
 <template>
   <ul class="projects">
     <li v-for="(project, index) in projects" class="project">
-      <a :href="project.url" target="_blank">
+      <a :href="project.url" target="_blank" rel="noreferrer">
         <div class="project__bg"></div>
         <div class="project__preview" :style="{
           backgroundImage: `url(${require(`../assets/images/${projects[index].imageUrl}`)})`,
