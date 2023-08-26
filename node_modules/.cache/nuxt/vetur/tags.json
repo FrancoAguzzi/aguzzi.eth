@@ -8,6 +8,9 @@
   "SolarPage": {
     "description": "Auto imported from components/SolarPage.vue"
   },
+  "SplashScreen": {
+    "description": "Auto imported from components/SplashScreen.vue"
+  },
   "TheHeader": {
     "description": "Auto imported from components/TheHeader.vue"
   }
