@@ -8,11 +8,11 @@
                     class="content__title-emoji">💫</span></h1>
             <h2 class="content__subtitle">Or <a class="link" href="/portfolio">frankind.eth</a> 😄 in the Ethereum
                 eco-system</h2>
-            <h3 class="content__thirdtitle">I help building web's future 🔮 <br />"But how?" You ask me 💭</h3>
+            <h3 class="content__thirdtitle">I help building web's future 🔮 <br />"But how?", You might ask me 💭</h3>
             <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder, I aim
                 to solve
                 good people problems with good communication and latest technologies 🌎 <br> while
-                o-creating a collaborative and harmonic place to work 🎼
+                co-creating a collaborative and harmonic place to work 🎼
                 <br>As as a programmer, I code web-accessible solutions with elegant interfaces and powerful performance
                 👨🏼‍💻
             </p>
