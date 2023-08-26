@@ -1,20 +1,21 @@
 <template>
   <div class="home">
+    <SplashScreen />
     <SolarPage />
-    <LunarPage id="lunar" />
+    <LunarPage />
     <div :class="[
       'home__message',
       { error: showErrorMessage, thanks: showThanksMessage },
     ]">
       {{
-      showErrorMessage
-      ? 'The form could not be successfully submitted, please try again.'
-      : ''
+        showErrorMessage
+        ? 'The form could not be successfully submitted, please try again.'
+        : ''
       }}
       {{
-      showThanksMessage
-      ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
-      : ''
+        showThanksMessage
+        ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
+        : ''
       }}
     </div>
   </div>
@@ -47,7 +48,7 @@ export default {
     }
 
     if (params.get('thankyou') && params.get('thankyou') === 'true') {
-      this.showThanksMessage = true
+      // this.showThanksMessage = true
     } else if (params.get('thankyou') && params.get('thankyou') === 'false') {
       this.showErrorMessage = true
     }

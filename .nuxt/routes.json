@@ -3,28 +3,24 @@
     "name": "contact",
     "path": "/contact",
     "component": "/Users/franco/aguzzi.eth/pages/contact.vue",
-    "chunkName": "pages/contact",
-    "_name": "_03806226"
+    "chunkName": "pages/contact"
   },
   {
     "name": "portfolio",
     "path": "/portfolio",
     "component": "/Users/franco/aguzzi.eth/pages/portfolio/index.vue",
-    "chunkName": "pages/portfolio/index",
-    "_name": "_7439f598"
+    "chunkName": "pages/portfolio/index"
   },
   {
     "name": "portfolio-projects",
     "path": "/portfolio/projects",
     "component": "/Users/franco/aguzzi.eth/pages/portfolio/projects.vue",
-    "chunkName": "pages/portfolio/projects",
-    "_name": "_e5e397b8"
+    "chunkName": "pages/portfolio/projects"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/franco/aguzzi.eth/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_2d4cb3df"
+    "chunkName": "pages/index"
   }
 ]

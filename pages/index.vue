@@ -4,34 +4,46 @@
 
         <header class="content">
             <img width="200px" src="~/assets/images/acenando.png" class="content__memoji" />
-            <h1 class="content__title">Hi, I'm <a href="/portfolio">Franco Aguzzi</a></h1>
-            <h2 class="content__subtitle">I help building web's future</h2>
-            <p class="content__description">Working as a full-stack developer, I help purposeful clients to
-                develop their business through technology. If you want to know more
-                about me, consider navigating through these links:</p>
+            <h1 class="content__title">Hi, I'm <a class="link" href="/portfolio">Franco Aguzzi</a><span
+                    class="content__title-emoji">💫</span></h1>
+            <h2 class="content__subtitle">Or <a class="link" href="/portfolio">frankind.eth</a> 😄 in the Ethereum
+                eco-system</h2>
+            <h3 class="content__thirdtitle">I help building web's future 🔮 <br />"But how?" You ask me 💭</h3>
+            <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder, I aim
+                to solve
+                good people problems with good communication and latest technologies 🌎 <br> while
+                o-creating a collaborative and harmonic place to work 🎼
+                <br>As as a programmer, I code web-accessible solutions with elegant interfaces and powerful performance
+                👨🏼‍💻
+            </p>
 
-            <ul class="content__socialMedias">
-                <li>
-                    <a href="/portfolio">
-                        <img src="~/assets/images/web.png" alt="Personal website icon" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/franco-aguzzi-546506184/">
-                        <img src="~/assets/images/linkedin.png" alt="LinkedIn logo" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/FrancoAguzzi">
-                        <img src="~/assets/images/github.png" alt="Github logo" />
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:faguzzi3@gmail.com">
-                        <img src="~/assets/images/email.png" alt="Email symbol" />
-                    </a>
-                </li>
-            </ul>
+            <div class="content__socialMedias">
+                <p class="content__socialMedias-title">If you want to know more about me, <br>consider navigating through
+                    these
+                    links:</p>
+                <ul class="content__socialMedias-links">
+                    <li>
+                        <a href="/portfolio">
+                            <img src="~/assets/images/web.png" alt="Personal website icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/franco-aguzzi-546506184/">
+                            <img src="~/assets/images/linkedin.png" alt="LinkedIn logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/FrancoAguzzi">
+                            <img src="~/assets/images/github.png" alt="Github logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:frankind.eth@gmail.com">
+                            <img src="~/assets/images/email.png" alt="Email symbol" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </header>
 
         <div class="bottomImage"></div>
@@ -112,59 +124,70 @@ a:visited {
 
 .topImage {
     background: url('~assets/images/topBgImage.png');
-    background-position: left 30% top;
-    top: 0;
+    background-size: 110%;
+    background-position: left 10% top 180%;
     left: 0;
+    top: 0;
 }
 
 .bottomImage {
-    background: url('~assets/images/bottomBgImage.png');
-    background-position: left 60% top 25%;
+    background: url('~assets/images/code.png');
+    background-size: 100% auto;
+    background-position: left 60% bottom 500%;
     bottom: 0;
     left: 0;
 }
 
 .content__socialMedias {
-    list-style: none;
-    margin: 40px 0 0 0;
-    padding: 0;
-    display: flex;
+    &-title {
+        margin: 40px 0 20px 0;
+        text-align: center;
+        font-size: 16px;
+        color: #438bd3;
+    }
 
-    li {
-        transition: all .2s;
+    &-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
 
-        img {
-            width: 60px;
-        }
-
-        &:hover {
-            transform: scale(1.2);
+        li {
             transition: all .2s;
 
-        }
+            img {
+                width: 60px;
+            }
 
-        &:not(:last-child) {
-            margin-right: 30px;
+            &:hover {
+                transform: scale(1.2);
+                transition: all .2s;
+
+            }
+
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
         }
     }
 }
 
 .content__title {
-    font-size: 2.25rem;
+    font-size: 30px;
     font-weight: 500;
     margin-top: 30px;
     color: #72abe4;
     text-align: center;
+}
 
-    a {
-        font-weight: bold;
+a.link {
+    font-weight: bold;
+    transition: all .2s;
+    color: #72abe4;
+
+    &:hover {
+        color: #438bd3;
         transition: all .2s;
-        color: #72abe4;
-
-        &:hover {
-            color: #438bd3;
-            transition: all .2s;
-        }
     }
 }
 
@@ -173,18 +196,27 @@ a:visited {
     margin-top: 10px;
     line-height: 150%;
     font-weight: 600;
-    font-size: clamp(1.5rem, 1rem + 1.25vw, 2rem);
+    font-size: 20px;
     color: #72abe4;
 }
 
+.content__thirdtitle {
+    text-align: center;
+    margin: 30px 40px 0;
+    line-height: 150%;
+    font-weight: 600;
+    font-size: 20px;
+    color: #438bd3;
+}
+
+
 .content__description {
     text-align: center;
-    margin-top: 50px;
     line-height: 150%;
-    font-size: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+    font-size: 18px;
     color: #72abe4;
     font-family: sans-serif;
-    margin: 30px 30px 0;
+    margin: 10px 30px 0;
 }
 
 main {
@@ -226,32 +258,42 @@ main {
 
         &__title {
             margin-top: 60px;
+
+            &-emoji {
+                margin-left: 20px;
+            }
         }
 
         &__subtitle {
-            margin-top: 30px;
+            margin-top: 15px;
             font-size: 28px;
         }
 
+        &__thirdtitle {
+            margin-top: 60px;
+            font-size: 20px;
+        }
+
         &__description {
-            margin-top: 40px;
+            margin-top: 15px;
             max-width: 570px;
-            font-size: 22px;
+            font-size: 20px;
         }
     }
 
     .topImage {
         height: 100vh;
         width: 25%;
+        background: url('~assets/images/topBgImage.jpg');
+        background-position: left 26% bottom;
         background-size: auto 100%;
-        background-position: left 70% bottom;
     }
 
     .bottomImage {
         left: auto;
         right: 0;
         background-size: cover;
-        background-position: right 20% top 35%;
+        background-position: left 10% top 35%;
         height: 100vh;
         width: 25%;
     }

@@ -7,7 +7,7 @@
           From worldwide market leader clients to high potential and purposeful
           startups
         </h2>
-        <nuxt-link class="lunar__content-texts__cta" to="/portfolio/projects">SEE REALIZED PROJECTS
+        <nuxt-link class="lunar__content-texts__cta" to="/portfolio/projects">SEE PROJECTS
         </nuxt-link>
       </div>
       <img class="lunar__content-bg" src="../assets/images/lunar-piramides.png" alt="Pyramids Image" />
@@ -48,7 +48,7 @@ export default {
         text-fill-color: rgba(255, 255, 255, 0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: rgba(255, 255, 255, 0);
-        margin: 20px 0 30px;
+        margin: 20px 0 60px;
 
         @media screen and (min-width: 768px) {
           font-size: 28px;
@@ -61,7 +61,8 @@ export default {
 
       &__cta {
         font-family: $secondary-font;
-        color: $font-color;
+        color: #5977e1;
+        font-weight: 700;
         background-clip: unset;
         text-fill-color: unset;
         -webkit-background-clip: unset;
@@ -74,7 +75,13 @@ export default {
         align-self: center;
         margin: 40px 0;
         font-size: 20px;
+        transition: all 0.4s;
         text-decoration: none;
+
+        &:hover {
+          transition: all 0.4s;
+          color: white;
+        }
 
         @media screen and (min-width: 768px) {
           margin-right: auto;
@@ -88,7 +95,7 @@ export default {
       @media screen and (min-width: 768px) {
         font-size: 32px;
         margin: 3vh auto;
-        max-width: 500px;
+        max-width: 550px;
       }
 
       @media screen and (min-width: 1024px) {

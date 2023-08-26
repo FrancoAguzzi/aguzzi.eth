@@ -9,4 +9,5 @@ You can directly use them in pages and other components without the need to impo
 - `<LunarPage>` | `<lunar-page>` (components/LunarPage.vue)
 - `<ProjectsList>` | `<projects-list>` (components/ProjectsList.vue)
 - `<SolarPage>` | `<solar-page>` (components/SolarPage.vue)
+- `<SplashScreen>` | `<splash-screen>` (components/SplashScreen.vue)
 - `<TheHeader>` | `<the-header>` (components/TheHeader.vue)

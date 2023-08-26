@@ -1,6 +1,6 @@
 <template>
   <ul class="projects">
-    <li v-for="(project, index) in projects" class="project">
+    <li v-for="(project, index) in projects" class="project" :key="project.name">
       <a :href="project.url" target="_blank" rel="noreferrer">
         <div class="project__bg"></div>
         <div class="project__preview" :style="{
@@ -32,7 +32,7 @@ export default {
         {
           url: 'https://blockful.io/',
           name: 'Blockful.io',
-          shortDescription: 'FullStack dev.',
+          shortDescription: 'Front-end dev.',
           imageUrl: 'blockful.png',
         },
         {
