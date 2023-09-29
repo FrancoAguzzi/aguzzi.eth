@@ -3,9 +3,9 @@
         <div class="topImage"></div>
 
         <header class="content">
-            <img width="200px" src="~/assets/images/acenando.png" class="content__memoji" />
+            <img width="180px" src="~/assets/images/acenando.png" class="content__memoji" />
             <h1 class="content__title">Hi, I'm <a class="link" href="/portfolio">Franco Aguzzi</a><span
-                    class="content__title-emoji">💫</span></h1>
+                    class="content__title-emoji"> 💫</span></h1>
             <h2 class="content__subtitle">Or <a class="link" href="/portfolio">frankind.eth</a> 😄 in the Ethereum
                 eco-system</h2>
             <h3 class="content__thirdtitle">I help building web's future 🔮 <br />"But how?", You might ask me 💭</h3>
@@ -74,7 +74,19 @@ body {
     align-items: center;
     justify-content: center;
     color: #83cbff;
+    padding: 0 0 0;
 }
+
+main {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 a:visited {
     color: inherit;
@@ -88,29 +100,12 @@ a:visited {
     align-items: center;
     max-width: min(100%, 68ch);
     font-size: clamp(2rem, -0.4742rem + 6.1856vw, 2.75rem);
-    height: 80vh;
-    margin: 10vh 0;
+    width: 100vw;
+    padding: 0% 2% 60%;
+    background: linear-gradient(360deg, #438bd300 0%, #e4f0fc3a 10%, #e4f0fc 20%, #e4f0fc 80%, #e4f0fc3a 90%, #438bd300 100%);
 
-    &:before {
-        content: '';
-        height: 1px;
-        width: 100vw;
-        box-shadow: 0 0 100px 250px #E4F0FC;
-        position: absolute;
-        right: 0;
-        z-index: -1;
-        bottom: 35%;
-    }
-
-    &:after {
-        content: '';
-        height: 1px;
-        width: 100vw;
-        box-shadow: 0 0 100px 250px #E4F0FC;
-        position: absolute;
-        right: 0;
-        z-index: -1;
-        top: 40%;
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -119,7 +114,9 @@ a:visited {
     width: 100vw;
     padding-top: 100%;
     background-size: cover;
-    position: absolute;
+    position: fixed;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .topImage {
@@ -128,6 +125,7 @@ a:visited {
     background-position: left 10% top 180%;
     left: 0;
     top: 0;
+    z-index: 1;
 }
 
 .bottomImage {
@@ -219,16 +217,26 @@ a.link {
     margin: 10px 30px 0;
 }
 
-main {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: #E4F0FC;
+@media screen and (min-width: 500px) {
+    .content {
+        padding: 20% 0 40%;
+    }
+
+    .topImage {
+        padding-top: 80%;
+        background-position: top left;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .content {
+        padding: 20% 0 40%;
+    }
+
+    .topImage {
+        padding-top: 50%;
+        background-position: top left;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -237,24 +245,16 @@ main {
         justify-content: center;
     }
 
+    body {
+        padding: 0;
+    }
+
     .content {
-        width: 70%;
-
-        &:after {
-            height: 100vh;
-            width: 1px;
-            left: 25%;
-            top: 0;
-        }
-
-        &:before {
-            height: 100vh;
-            width: 1px;
-            left: auto;
-            right: 25%;
-            top: 0;
-            transform: rotateZ(180deg);
-        }
+        height: 100vh;
+        margin: 0;
+        padding: 1% 33%;
+        overflow-y: auto;
+        background: linear-gradient(270deg, #438bd300 0%, #e4f0fc87 20%, #e4f0fc 30%, #e4f0fc 70%, #e4f0fc87 80%, #438bd300 100%);
 
         &__title {
             margin-top: 60px;
@@ -283,10 +283,11 @@ main {
 
     .topImage {
         height: 100vh;
-        width: 25%;
+        width: 50%;
         background: url('~assets/images/topBgImage.jpg');
         background-position: left 26% bottom;
         background-size: auto 100%;
+        padding-top: 100%;
     }
 
     .bottomImage {
@@ -295,7 +296,7 @@ main {
         background-size: cover;
         background-position: left 10% top 35%;
         height: 100vh;
-        width: 25%;
+        width: 50%;
     }
 }
 </style>
