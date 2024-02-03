@@ -100,7 +100,7 @@ a:visited {
     max-width: min(100%, 68ch);
     font-size: clamp(2rem, -0.4742rem + 6.1856vw, 2.75rem);
     width: 100vw;
-    padding: 0% 2% 60%;
+    padding: 60% 2%;
     background: linear-gradient(360deg, #438bd300 0%, #e4f0fc3a 10%, #e4f0fc 20%, #e4f0fc 80%, #e4f0fc3a 90%, #438bd300 100%);
 
     &::-webkit-scrollbar {
@@ -183,12 +183,12 @@ a.link {
 .content__title {
     font-size: 30px;
     font-weight: 500;
-    margin: 30px 40px 0;
+    margin: 30px 20% 0;
     text-align: center;
-    color: #CBA58A;
+    color: #E99F4A;
 
     &>a {
-        color: #CBA58A;
+        color: #E99F4A;
 
         &:hover {
             color: #c48f6a;
@@ -198,7 +198,7 @@ a.link {
 
 .content__subtitle {
     text-align: center;
-    margin: 10px 40px 0;
+    margin: 10px 20% 0;
     line-height: 150%;
     font-weight: 600;
     font-size: 20px;
@@ -227,6 +227,11 @@ a.link {
 @media screen and (min-width: 500px) {
     .content {
         padding: 20% 0 40%;
+
+        &__title,
+        &__subtitle {
+            padding: 0 10%;
+        }
     }
 
     .topImage {
@@ -239,8 +244,12 @@ a.link {
     .content {
         padding: 20% 0 40%;
 
+        &__title {
+            padding: 0;
+        }
+
         &__subtitle {
-            margin: 10px 80px 0;
+            margin: 10px 0 0;
         }
     }
 
@@ -273,7 +282,8 @@ a.link {
 
         &__subtitle {
             margin-top: 15px;
-            font-size: 28px;
+            font-size: 24px;
+            margin: 10px 40px;
         }
 
         &__thirdtitle {
