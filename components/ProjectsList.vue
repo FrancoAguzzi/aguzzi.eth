@@ -24,51 +24,69 @@ export default {
     return {
       projects: [
         {
+          url: 'https://namehashlabs.org/',
+          name: 'NameHash Labs',
+          shortDescription: 'Web3 Software engineer',
+          imageUrl: 'namehash-labs.png',
+        },
+        {
+          url: 'https://nameguard.io/',
+          name: 'NameGuard',
+          shortDescription: 'FrontEnd library developer',
+          imageUrl: 'nameguard.png',
+        },
+        {
+          url: 'https://namekit.io/',
+          name: 'NameKit',
+          shortDescription: 'FullStack Web3 library developer',
+          imageUrl: 'namekit.png',
+        },
+        {
           url: 'https://namehash.io/',
-          name: 'Namehash [ENS Marketplace]',
-          shortDescription: 'FullStack dev.',
+          name: 'NameHash',
+          shortDescription: 'FullStack Web3 developer',
           imageUrl: 'namehash.png',
         },
         {
           url: 'https://blockful.io/',
           name: 'Blockful.io',
-          shortDescription: 'Front-end dev.',
+          shortDescription: 'Co-founder and Team lead',
           imageUrl: 'blockful.png',
         },
         {
           url: 'https://www.cerave.com/about-cerave/the-ceramides-difference',
           name: 'Cerave US',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'cerave.png',
         },
         {
           url: 'https://www.essie.com',
           name: 'Essie US',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'essie.png',
         },
         {
           url: 'https://www.garnierusa.com',
           name: 'Garnier US',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'garnier.png',
         },
         {
           url: 'https://www.maybelline.com',
           name: 'Maybelline US',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'maybelline.png',
         },
         {
           url: 'https://finclass.com/',
           name: 'Finclass',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'finclass.png',
         },
         {
           url: 'https://agro.bayer.com.br/',
           name: 'Agro Bayer',
-          shortDescription: 'FrontEnd dev.',
+          shortDescription: 'FrontEnd developer',
           imageUrl: 'bayer.png',
         },
         {
@@ -92,7 +110,6 @@ export default {
 <style lang="scss" scoped>
 .projects {
   list-style: none;
-  margin: 20px auto 60px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -145,7 +162,7 @@ export default {
 
     &__overview {
       padding: 30px 120px 10px 30px;
-      margin: 0 0 10px -20px;
+      margin: 0 0 20px -20px;
       background-color: $contrast-color;
       z-index: 3;
       position: relative;
@@ -166,8 +183,8 @@ export default {
 
     &:hover {
       .project__overview {
-        -webkit-transform: translateX(20px);
-        transform: translateX(20px);
+        -webkit-transform: translateX(19px);
+        transform: translateX(19px);
         transition: all 0.2s;
       }
     }

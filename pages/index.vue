@@ -4,17 +4,16 @@
 
         <header class="content">
             <img width="180px" src="~/assets/images/acenando.png" class="content__memoji" />
-            <h1 class="content__title">Hi, I'm <a class="link" href="/portfolio">Franco Aguzzi</a><span
-                    class="content__title-emoji"> 💫</span></h1>
-            <h2 class="content__subtitle">Or <a class="link" href="/portfolio">frankind.eth</a> 😄 in the Ethereum
-                eco-system</h2>
-            <h3 class="content__thirdtitle">I help building web's future 🔮 <br />"But how?", You might ask me 💭</h3>
-            <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder, I aim
-                to solve
-                good people problems with good communication and latest technologies 🌎 <br> while
-                co-creating a collaborative and harmonic place to work 🎼
-                <br>As as a programmer, I code web-accessible solutions with elegant interfaces and powerful performance
-                👨🏼‍💻
+            <h1 class="content__title">Welcome, I'm <a class="link" href="/portfolio">Franco Aguzzi</a>
+            </h1>
+            <h2 class="content__subtitle">or <a class="link" href="/portfolio">frankind.eth</a> in the Ethereum
+                eco-system.</h2>
+            <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder 👨🏼‍✈️
+                I aim
+                to solve good people problems 🌎 with good communication 🤍 and latest technologies 👨🏼‍💻 while
+                co-creating a collaborative and harmonic place to work 💎
+                As as a software engineer, I code accessible Web3 👨🏽‍🦯 solutions with elegant interfaces 🎮 powerful
+                performance ⚡️ and high unit tests coverage 👾
             </p>
 
             <div class="content__socialMedias">
@@ -170,14 +169,6 @@ a:visited {
     }
 }
 
-.content__title {
-    font-size: 30px;
-    font-weight: 500;
-    margin-top: 30px;
-    color: #72abe4;
-    text-align: center;
-}
-
 a.link {
     font-weight: bold;
     transition: all .2s;
@@ -189,9 +180,25 @@ a.link {
     }
 }
 
+.content__title {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 30px 40px 0;
+    text-align: center;
+    color: #CBA58A;
+
+    &>a {
+        color: #CBA58A;
+
+        &:hover {
+            color: #c48f6a;
+        }
+    }
+}
+
 .content__subtitle {
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 40px 0;
     line-height: 150%;
     font-weight: 600;
     font-size: 20px;
@@ -231,6 +238,10 @@ a.link {
 @media screen and (min-width: 768px) {
     .content {
         padding: 20% 0 40%;
+
+        &__subtitle {
+            margin: 10px 80px 0;
+        }
     }
 
     .topImage {
@@ -257,11 +268,7 @@ a.link {
         background: linear-gradient(270deg, #438bd300 0%, #e4f0fc87 20%, #e4f0fc 30%, #e4f0fc 70%, #e4f0fc87 80%, #438bd300 100%);
 
         &__title {
-            margin-top: 60px;
-
-            &-emoji {
-                margin-left: 20px;
-            }
+            margin: 60px 0px 0;
         }
 
         &__subtitle {

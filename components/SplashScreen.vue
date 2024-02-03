@@ -35,6 +35,7 @@ export default {
     }
 
     66% {
+        opacity: 1;
         transform: scale(6);
     }
 

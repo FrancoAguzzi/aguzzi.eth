@@ -6,12 +6,15 @@
       class="header__back">
       <img src="../assets/images/arrow.png" alt="Back to home cta image" />
     </nuxt-link>
-    <div v-if="!isStar" class="header__content">
-      <!-- <h1 v-if="!isLunar" class="header__content-pricing"><b>DAY RATE</b> £200</h1> -->
-      <!-- <nuxt-link :to="`${isLunar ? '/contact?fromLunar=true' : isProjects ? '/contact?fromProjects=true' : '/contact'}`"
+    <!-- <div v-if="!isStar" class="header__content"> -->
+    <!-- <h1 v-if="!isLunar" class="header__content-pricing"><b>DAY RATE</b> £200</h1> -->
+    <!-- <nuxt-link :to="`${isLunar ? '/contact?fromLunar=true' : isProjects ? '/contact?fromProjects=true' : '/contact'}`"
         class="header__content-contact">CONTACT
       </nuxt-link> -->
-    </div>
+    <!-- </div> -->
+    <nuxt-link v-if="!isStar" :class="isLunar ? 'header__cta header__cta-lunar' : 'header__cta header__cta-solar'"
+      to="/portfolio/projects">SEE PROJECTS
+    </nuxt-link>
     <img v-if="!isLunar && !isStar && !isProjects" class="header__image" src="../assets/images/sun.png" alt="Sun Image" />
     <img v-if="isStar" class="header__image" src="../assets/images/star.png" alt="Star Image" />
   </header>
@@ -35,7 +38,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
+  width: 80vw;
+  padding: 40px 0;
+  position: relative;
+  z-index: 20;
 
   &__back {
     background-color: rgba(255, 255, 255, 0);
@@ -64,6 +70,43 @@ export default {
       img {
         width: 100%;
       }
+    }
+  }
+
+  &__cta {
+    font-family: $secondary-font;
+    font-weight: 700;
+    background-clip: unset;
+    text-fill-color: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: all 0.4s;
+    text-decoration: none;
+
+    &-lunar {
+      background: radial-gradient(50% 50% at 50% 50%,
+          rgba(191, 244, 255, 0.4) 0%,
+          rgba(89, 119, 225, 0.4) 100%);
+      color: #5977e1;
+    }
+
+    &-solar {
+      background: radial-gradient(50% 50% at 50% 50%,
+          rgba(235, 96, 53, 1) 0%,
+          rgba(234, 165, 46, 1) 100%);
+      color: white;
+    }
+
+    &:hover {
+      transition: all 0.4s;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 28px;
     }
   }
 

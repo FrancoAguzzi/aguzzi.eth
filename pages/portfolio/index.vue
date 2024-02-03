@@ -72,7 +72,7 @@ export default {
 .home {
   width: 100vw;
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   flex-direction: column;
   transition: transform 0.4s;
 

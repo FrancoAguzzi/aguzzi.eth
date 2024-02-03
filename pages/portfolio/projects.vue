@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader :backToLunarSection="true" :isProjects="true"></TheHeader>
+    <TheHeader :isProjects="true" :isStar="true"></TheHeader>
     <ProjectsList></ProjectsList>
   </div>
 </template>
