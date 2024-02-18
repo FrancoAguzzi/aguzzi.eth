@@ -54,6 +54,18 @@ export default {
           imageUrl: 'blockful.png',
         },
         {
+          url: 'https://0xolimpo.xyz/',
+          name: 'Olimpo Web3 Community',
+          shortDescription: 'FrontEnd developer',
+          imageUrl: 'olimpo.png',
+        },
+        {
+          url: 'https://airdrops.fyi/',
+          name: 'Delta Fund Airdrops tool',
+          shortDescription: 'FrontEnd developer',
+          imageUrl: 'deltafund.png',
+        },
+        {
           url: 'https://www.cerave.com/about-cerave/the-ceramides-difference',
           name: 'Cerave US',
           shortDescription: 'FrontEnd developer',
