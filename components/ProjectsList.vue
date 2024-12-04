@@ -41,12 +41,6 @@ export default {
           imageUrl: 'trustful.png',
         },
         {
-          url: 'https://stellar.trust.ful.xyz/',
-          name: 'Trustful',
-          shortDescription: 'Tech leader',
-          imageUrl: 'trustful.png',
-        },
-        {
           url: 'https://shutter-staking-dapp.vercel.app/',
           name: 'Shutter Staking dApp',
           shortDescription: 'Full-stack Web3 engineer',
