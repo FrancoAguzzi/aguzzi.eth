@@ -6,9 +6,10 @@
             <img width="180px" src="~/assets/images/acenando.png" class="content__memoji" />
             <h1 class="content__title">Welcome, I'm <a class="link" href="/portfolio">Franco Aguzzi</a>
             </h1>
-            <h2 class="content__subtitle">or <a class="link" href="/portfolio">frankind.eth</a> in the Ethereum
+            <h2 class="content__subtitle">or <a class="link" href="/portfolio">caco.eth</a> in the Ethereum
                 eco-system.</h2>
-            <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder 👨🏼‍✈️
+            <p class="content__description">As <a class="link" href="https://blockful.io">Blockful's</a> co-founder
+                👨🏼‍✈️
                 I aim
                 to solve good people problems 🌎 with good communication 🤍 and latest technologies 👨🏼‍💻 while
                 co-creating a collaborative and harmonic place to work 💎
@@ -17,7 +18,8 @@
             </p>
 
             <div class="content__socialMedias">
-                <p class="content__socialMedias-title">If you want to know more about me, <br>consider navigating through
+                <p class="content__socialMedias-title">If you want to know more about me, <br>consider navigating
+                    through
                     these
                     links:</p>
                 <ul class="content__socialMedias-links">
@@ -128,7 +130,7 @@ a:visited {
 }
 
 .bottomImage {
-    background: url('~assets/images/code.png');
+    background: url('~assets/images/code_2.png');
     background-size: 100% auto;
     background-position: left 60% bottom 500%;
     bottom: 0;

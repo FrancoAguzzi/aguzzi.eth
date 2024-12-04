@@ -3,12 +3,10 @@
     <TheHeader></TheHeader>
     <div class="solar__overlay"></div>
     <main class="solar__texts">
-      <p>Hello dear friend!</p>
+      <p>Hello!</p>
       <h1>
-        I'm happy you are interested in knowing more about my past experiences. <br /><br />You can know more
-        about
-        these
-        by clicking in the CTA above or by visiting the <a class="solar__texts-cta" href="/">home page</a>.
+        I'm happy you are interested in knowing more about me. <br /><br />Please consider clicking in the CTA above or
+        by visiting the <a class="solar__texts-cta" href="/">home page</a>.
       </h1>
     </main>
     <img class="solar__bg" src="../assets/images/solar-piramides.png" alt="Pyramids Image" />

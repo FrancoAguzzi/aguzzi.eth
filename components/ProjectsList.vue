@@ -24,6 +24,47 @@ export default {
     return {
       projects: [
         {
+          name: 'Uniswap Governance Dashboard',
+          shortDescription: 'FrontEnd engineer - WIP',
+          imageUrl: 'uniswap.png',
+        },
+        {
+          url: 'https://www.zuzalu.city/',
+          name: 'Zuzalu City',
+          shortDescription: 'Tech leader for plug-in integration',
+          imageUrl: 'zuzalu.png',
+        },
+        {
+          url: 'https://stellar.trust.ful.xyz/',
+          name: 'Trustful',
+          shortDescription: 'Tech leader',
+          imageUrl: 'trustful.png',
+        },
+        {
+          url: 'https://stellar.trust.ful.xyz/',
+          name: 'Trustful',
+          shortDescription: 'Tech leader',
+          imageUrl: 'trustful.png',
+        },
+        {
+          url: 'https://shutter-staking-dapp.vercel.app/',
+          name: 'Shutter Staking dApp',
+          shortDescription: 'Full-stack Web3 engineer',
+          imageUrl: 'shutter.png',
+        },
+        {
+          url: 'https://name.ful.xyz/',
+          name: 'Nameful | Innovation for ENS DAO',
+          shortDescription: 'Web3 Software engineer',
+          imageUrl: 'nameful.png',
+        },
+        {
+          url: 'https://freename.io/',
+          name: 'Freename E-commerce',
+          shortDescription: 'Tech leader',
+          imageUrl: 'freename.png',
+        },
+        {
           url: 'https://namehashlabs.org/',
           name: 'NameHash Labs',
           shortDescription: 'Web3 Software engineer',
@@ -44,13 +85,19 @@ export default {
         {
           url: 'https://namehash.io/',
           name: 'NameHash',
-          shortDescription: 'FullStack Web3 developer',
+          shortDescription: 'FullStack Web3 E-commerce developer',
           imageUrl: 'namehash.png',
+        },
+        {
+          url: 'https://www.enkrypt.com/',
+          name: 'Enkrypt',
+          shortDescription: 'Web3 Wallet Provider contributor',
+          imageUrl: 'enkrypt.png',
         },
         {
           url: 'https://blockful.io/',
           name: 'Blockful.io',
-          shortDescription: 'Co-founder and Team lead',
+          shortDescription: 'Co-founder and Team leader',
           imageUrl: 'blockful.png',
         },
         {
@@ -68,25 +115,25 @@ export default {
         {
           url: 'https://www.cerave.com/about-cerave/the-ceramides-difference',
           name: 'Cerave US',
-          shortDescription: 'FrontEnd developer',
+          shortDescription: 'FrontEnd E-commerce developer',
           imageUrl: 'cerave.png',
         },
         {
           url: 'https://www.essie.com',
           name: 'Essie US',
-          shortDescription: 'FrontEnd developer',
+          shortDescription: 'FrontEnd E-commerce developer',
           imageUrl: 'essie.png',
         },
         {
           url: 'https://www.garnierusa.com',
           name: 'Garnier US',
-          shortDescription: 'FrontEnd developer',
+          shortDescription: 'FrontEnd E-commerce developer',
           imageUrl: 'garnier.png',
         },
         {
           url: 'https://www.maybelline.com',
           name: 'Maybelline US',
-          shortDescription: 'FrontEnd developer',
+          shortDescription: 'FrontEnd E-commerce developer',
           imageUrl: 'maybelline.png',
         },
         {
@@ -173,7 +220,7 @@ export default {
     }
 
     &__overview {
-      padding: 30px 120px 10px 30px;
+      padding: 30px 120px 10px 40px;
       margin: 0 0 20px -20px;
       background-color: $contrast-color;
       z-index: 3;
@@ -190,6 +237,10 @@ export default {
       h2 {
         font-weight: 400;
         margin: 0;
+      }
+
+      &-title {
+        padding-right: 20px;
       }
     }
 
