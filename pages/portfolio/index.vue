@@ -9,13 +9,13 @@
     ]">
       {{
         showErrorMessage
-        ? 'The form could not be successfully submitted, please try again.'
-        : ''
+          ? 'The form could not be successfully submitted, please try again.'
+          : ''
       }}
       {{
         showThanksMessage
-        ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
-        : ''
+          ? 'Thanks for you vote of trust! We will reach you out asap 👽🖖🏼'
+          : ''
       }}
     </div>
   </div>
@@ -41,6 +41,8 @@ export default {
     }
   },
   mounted() {
+    window.href.location = "https://app.usebraintrust.com/talent/1469757/"
+
     const params = new URLSearchParams(document.location.search.substring(1))
 
     if (params.get('currentPage') && parseInt(params.get('currentPage'))) {
