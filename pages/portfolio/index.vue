@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    window.href.location = "https://app.usebraintrust.com/talent/1469757/"
+    window.location.replace("https://app.usebraintrust.com/talent/1469757/")
 
     const params = new URLSearchParams(document.location.search.substring(1))
 

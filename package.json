@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",
-    "@splinetool/runtime": "^1.9.48",
     "core-js": "^3.19.3",
     "fibers": "^5.0.2",
     "lodash": "^4.17.21",

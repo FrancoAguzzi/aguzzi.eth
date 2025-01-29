@@ -11,7 +11,7 @@ export default {
   name: 'ProjectsPage',
   components: { ProjectsList },
   mounted() {
-    window.href.location = "https://app.usebraintrust.com/talent/1469757/"
+    window.location.replace("https://app.usebraintrust.com/talent/1469757/")
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
     <main>
         <div class="topImage"></div>
-        <canvas id="canvas3d"></canvas>
         <header class="content">
             <img width="180px" src="~/assets/images/acenando.png" class="content__memoji" />
             <h1 class="content__title">Welcome, I'm <a class="link" href="/portfolio">Franco Aguzzi</a>
@@ -52,15 +51,8 @@
 </template>
 
 <script>
-import { Application } from '@splinetool/runtime';
-
 export default {
     name: 'IndexPage',
-    mounted() {
-        const canvas = document.getElementById('canvas3d');
-        const app = new Application(canvas);
-        app.load('https://prod.spline.design/oDepQ7quqPXszgWl/scene.splinecode');
-    }
 }
 </script>
 
